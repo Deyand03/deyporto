@@ -34,21 +34,40 @@ const bladeProgress = $('#blade-progress');
 const nama = $('#in-name');
 const email = $('#in-email');
 const messages = $('#in-messages');
+const menu = $('#menuNavbar');
 
 // Fungsi Menambahkan Border bottom navbar
 window.onscroll = function() {
-    const navbar = $("#navbar");
+    const navbarCustom = $(".navbar-custom");
     if (window.scrollY > 0) {
-        navbar.classList.add("border-bottom");
-        navbar.style.backgroundColor = 'rgba(0, 0 , 0, 0.3)';
-        navbar.style.transition = 'all .5s ease-out';
-        navbar.style.backdropFilter = 'blur(3px)';
+        navbarCustom.classList.add("border-bottom");
+        navbarCustom.style.backgroundColor = 'rgba(0, 0 , 0, 0.5)';
+        navbarCustom.style.transition = 'all .5s ease-out';
+        navbarCustom.style.backdropFilter = 'blur(3px)';
     } else {
-        navbar.classList.remove("border-bottom");
-        navbar.style.backgroundColor = 'rgba(0, 0 , 0, 0)';
-        navbar.style.backdropFilter = 'blur(0)';
+        navbarCustom.classList.remove("border-bottom");
+        navbarCustom.style.backgroundColor = 'rgba(0, 0 , 0, 0)';
+        navbarCustom.style.backdropFilter = 'blur(0)';
     }
 };
+//Fungsi Menu Hamburger Navbar
+menu.addEventListener('change', function(){
+  
+});
+
+// Fungsi untuk menghapus atribut `data-aos` di perangkat mobile
+function removeAosOnMobile() {
+  if (window.innerWidth < 768) {
+    const elements = document.querySelectorAll("div");
+    elements.forEach((element) => {
+      element.removeAttribute("data-aos");
+    });
+  }
+}
+document.addEventListener("DOMContentLoaded", removeAosOnMobile);
+window.addEventListener("resize", removeAosOnMobile);
+
+
 //Fungsi Toggle Dark Mode
 toggleDark.addEventListener('click', function() {
     Swal.fire({
@@ -75,18 +94,31 @@ toggleDark.addEventListener('click', function() {
 //     });
 //   });
   
-//Scrollspy
 
-document.addEventListener("DOMContentLoaded", () => {
-  const skillSection = document.querySelector("#skills"); // Ganti sesuai ID bagian Skills
+//Animasi Progress saat muncul dilayar
+ document.addEventListener("DOMContentLoaded", () => {
+  const skillSection = document.querySelector("#skills");
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        startSkillAnimations(); // Memulai animasi saat terlihat
-        observer.unobserve(skillSection); // Hentikan pengamatan setelah animasi berjalan
+        startSkillAnimations1();
+        observer.unobserve(skillSection);
       }
     });
-  }, { threshold: 0.5 }); // 50% elemen harus terlihat untuk memicu
+  }, { threshold: 0.2 });
+  console.log(observer);
+  observer.observe(skillSection);
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const skillSection = document.querySelector("#language");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        startSkillAnimations2();
+        observer.unobserve(skillSection);
+      }
+    });
+  }, { threshold: 0.3 });
 
   observer.observe(skillSection);
 });
@@ -96,17 +128,19 @@ function delay(ms) {
 }
 async function animateProgress(element, percentage, delayTime, textElement = null) {
   for (let i = 1; i <= percentage; i++) {
-    if (textElement) textElement.textContent = `${i}%`; // Tampilkan persentase
+    if (textElement) textElement.textContent = `${i}%`;
     element.style.width = `${i}%`;
     await delay(delayTime);
   }
 }
-function startSkillAnimations() {
+function startSkillAnimations1() {
     animateProgress(progressWeb, 35, 50, progressWebPersen);
     animateProgress(progressProgramming, 12, 50, progressProgrammingPersen);
     animateProgress(progressUnknown1, 100, 15);
     animateProgress(progressUnknown2, 100, 20);
     animateProgress(progressDraw, 40, 45, progressDrawPersen);
+}
+function startSkillAnimations2() {
     animateProgress(htmlProgress, 75, 30, htmlPersen);
     animateProgress(cssProgress, 60, 33, cssPersen);
     animateProgress(jsProgress, 30, 40, jsPersen);

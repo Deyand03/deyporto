@@ -9,6 +9,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Lily Script One' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.css">
     <link rel="stylesheet" href="/styling/style.css">
     <link rel="icon" href="/asset/images/DLogo.png">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -17,18 +18,26 @@
 <body>
     <div>
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg fixed-top" style="max-height: fit-content;backdrop-filter: blur(3px);" id="navbar">
+        <!-- Navbar Desktop -->
+        <nav class="navbar navbar-custom fixed-top" style="max-height: fit-content;" id="navbar-desktop">
             <div class="container-fluid d-flex justify-content-between align-items-center mx-3">
-                <div class="navbar-brand fs-5 text-light text-navbar" style="font-family: 'Lily Script One';cursor: default;">Deyand
-                </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="button-navbar d-flex align-items-center btn btn-outline-light rounded-circle d-md-none"
+                    id="menuNavbar" style="aspect-ratio: 1/1;" type="checkbox" data-bs-toggle="collapse"
+                    data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                        <path
+                            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                    </svg>
                 </button>
-                <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav flex-row gap-3 mb-0 d-none d-lg-flex">
+                <div class="fs-5 text-light text-navbar" style="font-family: 'Lily Script One';cursor: default;">
+                    Deyand
+                </div>
+                <div class="d-flex justify-content-center d-none d-md-flex">
+                    <ul class="navbar-nav flex-row gap-2 mb-0">
                         <li class="nav-item">
-                            <a class="fw-semibold text-decoration-none d-flex align-items-center gap-1 btn btn-outline-light btn-sm rounded-pill"
-                                aria-current="page" href="#home">
+                            <a class="fw-semibold button-navbar text-decoration-none d-flex align-items-center gap-1 btn btn-outline-light btn-sm rounded-pill"
+                                href="#home">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-house-fill" viewBox="0 0 16 16">
                                     <path
@@ -39,7 +48,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="fw-semibold button-navbar text-decoration-none d-flex align-items-center gap-1 btn btn-outline-light btn-sm rounded-pill"
-                                href="#aboutMe">
+                                href="#aboutMe" id="aboutMeLink">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-person-lines-fill" viewBox="0 0 16 16">
                                     <path
@@ -49,8 +58,8 @@
                         </li>
                         <li class="nav-item">
                             <a class="fw-semibold button-navbar text-decoration-none d-flex align-items-center gap-1 btn btn-outline-light btn-sm rounded-pill"
-                                href="#project">
-                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                href="#project" id="projectLink">
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                                     fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="2"
@@ -60,7 +69,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="fw-semibold button-navbar text-decoration-none d-flex align-items-center gap-1 btn btn-outline-light btn-sm rounded-pill"
-                                href="#achievement">
+                                href="#achievement" id="achievementLink">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-trophy-fill" viewBox="0 0 16 16">
                                     <path
@@ -70,7 +79,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="fw-semibold button-navbar text-decoration-none d-flex align-items-center gap-1 btn btn-outline-light btn-sm rounded-pill"
-                                href="#contact">
+                                href="#contact" id="contactLink">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-envelope-at-fill" viewBox="0 0 16 16">
                                     <path
@@ -85,7 +94,6 @@
                 <button id="toggle-dark"
                     class="button-navbar btn btn-outline-light d-flex align-items-center rounded-circle" type="button"
                     style="aspect-ratio: 1/1;">
-                    <!-- data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-moon-stars-fill" viewBox="0 0 16 16">
                         <path
@@ -96,357 +104,695 @@
                 </button>
             </div>
         </nav>
+        <!-- Navbar Mobile -->
+        <div class="p-3 rounded d-md-none mt-3 collapse collapse-horizontal" id="collapseWidthExample"
+            style="position: fixed;top: 45px;z-index: 9999;">
+            <ul class="navbar-nav gap-2 mb-0" id="navbar-mobile">
+                <li class="nav-item">
+                    <a class="fw-semibold button-navbar text-decoration-none d-flex align-items-center gap-1 btn btn-outline-light btn-sm rounded-pill"
+                        href="#home" style="backdrop-filter: blur(5px);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-house-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
+                            <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
+                        </svg>
+                        Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="fw-semibold button-navbar text-decoration-none d-flex align-items-center gap-1 btn btn-outline-light btn-sm rounded-pill"
+                        href="#aboutMe" style="backdrop-filter: blur(5px);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z" />
+                        </svg>
+                        About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="fw-semibold button-navbar text-decoration-none d-flex align-items-center gap-1 btn btn-outline-light btn-sm rounded-pill"
+                        href="#project" style="backdrop-filter: blur(5px);">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+                            viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5.35709 16V5.78571c0-.43393.34822-.78571.77777-.78571H18.5793c.4296 0 .7778.35178.7778.78571V16M5.35709 16h-1c-.55229 0-1 .4477-1 1v1c0 .5523.44771 1 1 1H20.3571c.5523 0 1-.4477 1-1v-1c0-.5523-.4477-1-1-1h-1M5.35709 16H19.3571M9.35709 8l2.62501 2.5L9.35709 13m4.00001 0h2" />
+                        </svg>
+                        Project</a>
+                </li>
+                <li class="nav-item">
+                    <a class="fw-semibold button-navbar text-decoration-none d-flex align-items-center gap-1 btn btn-outline-light btn-sm rounded-pill"
+                        href="#achievement" style="backdrop-filter: blur(5px);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-trophy-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935" />
+                        </svg>
+                        Achievement</a>
+                </li>
+                <li class="nav-item">
+                    <a class="fw-semibold button-navbar text-decoration-none d-flex align-items-center gap-1 btn btn-outline-light btn-sm rounded-pill"
+                        href="#contact" style="backdrop-filter: blur(5px);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-envelope-at-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671" />
+                            <path
+                                d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791" />
+                        </svg>
+                        Contact</a>
+                </li>
+            </ul>
+        </div>
         <!-- Navbar End -->
 
-        <!-- Offcanvas -->
-        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasRight"
-            aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header" data-bs-theme="dark">
-                <h5 class="offcanvas-title" id="offcanvasRightLabel">My Project</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="">
-                    <li>
-                        <a href="tools.html" type="button" class="btn btn-outline-light rounded-pill shaodw-lg">Latihan
-                            1 Perhitungan Matematika</a>
-                    </li>
-                    <!-- <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li> -->
-                </ul>
-            </div>
-        </div>
-        <!-- Offcanvas End -->
-
         <!-- Content -->
-        <div class="container-fluid">
-            <div id="home" style="height: 100vh;">
-                <!-- Home Isi -->
-                <div class="d-flex align-items-center justify-content-center vh-100">
-                    <div class="kartu-id rounded-4 p-4" style="width: 70%;">
-                        <div class="row">
-                            <div class="col-md-8 order-2 d-flex flex-column justify-content-around">
-                                <div>
-                                    <h1 class="fw-semibold">Halo, Saya <span style="color: rgba(99, 150, 226);">Defry
-                                            Yandy</span></h1>
-                                    <h4 class="fw-semibold fs-4">Student At Jambi University</h4>
+        <div class="container-fluid" data-bs-target="#navbar-desktop" data-bs-spy="scroll"
+            data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
+            <div data-bs-target="#navbar-mobile" data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%"
+                data-bs-smooth-scroll="true" tabindex="0">
+                <section id="home" style="height: 100vh;">
+                    <!-- Home Isi -->
+                    <div class="d-flex align-items-center justify-content-center vh-100" style="margin: 0 auto;">
+                        <div class="kartu-id rounded-4 p-4" style="width: 100%;height: fit-content;">
+                            <div class="row">
+                                <div class="col-md-8 order-2 d-flex flex-column justify-content-around">
+                                    <div class="judul-subjudul">
+                                        <h1 class="fw-semibold font-size1">Halo, Saya <span
+                                                style="color: rgba(99, 150, 226);">Defry
+                                                Yandy</span></h1>
+                                        <h3 class="fw-semibold font-size2">Student At Jambi University</h3>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-size3">Web Developer | Python dev <br> CyberSecurity (Belajar) |
+                                            Artist </h5>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 d-flex align-items-center gap-3 sosmed">
+                                            <div class="d-flex align-items-center github" style="height: 35px;">
+                                                <a href="https://github.com/Deyand03">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
+                                                        fill="white" class="bi bi-github icon-github"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <div class="d-flex align-items-center instagram" style="height: 35px;">
+                                                <a href="https://www.instagram.com/deyand.__">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
+                                                        fill="white" class="bi bi-instagram icon-instagram"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <div class="d-flex align-items-center youtube" style="height: 35px;">
+                                                <a href="#">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
+                                                        fill="white" class="bi bi-youtube icon-youtube"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <div class="d-flex align-items-center linkedin" style="height: 35px;">
+                                                <a href="#">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
+                                                        fill="white" class="bi bi-linkedin icon-linkedin"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <div class="d-flex align-items-center whatsapp" style="height: 35px;">
+                                                <a href="#">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
+                                                        fill="white" class="bi bi-whatsapp icon-whatsapp"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 d-lg-flex sosmed1 p-0">
+                                            <a href="#"
+                                                class="btn btn-outline-light d-flex align-items-center justify-content-center gap-1 cv"
+                                                style="width: 10rem;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
+                                                    fill="currentColor" class="bi bi-file-earmark-person-fill"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0m2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755" />
+                                                </svg>
+                                                CV</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="fs-5">Web Developer | Python dev | CyberSecurity (Belajar) | Artist </p>
+
+                                <div class="col-md-4 order-1 d-flex justify-content-center">
+                                    <!-- Profile IMage -->
+                                    <div class="profile-hologram">
+                                        <div class="profile-wrapper" data-tilt data-tilt-glare
+                                            data-tilt-max-glare="0.3">
+                                            <img src="/asset/images/GUA.webp" class="profile-img" alt="Profile" loading="lazy">
+                                            <div class="hologram-content">
+                                                <div class="glitch" data-text="Deyand">Deyand</div>
+                                                <div class="glitch-small" data-text="Defry Yandy">Defry Yandy</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="d-flex align-items-center gap-3">
-                                    <div class="d-flex align-items-center github" style="height: 35px;">
-                                        <a href="https://github.com/Deyand03">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
-                                                fill="white" class="bi bi-github icon-github" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
-                                            </svg>
-                                        </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                <!-- Home Isi end -->
+
+
+                <!-- About Me-->
+                <section id="aboutMe" style="height: fit-content;padding-top: 70px;padding-bottom: 70px;">
+                    <!-- Judul -->
+                    <div class="d-flex flex-column align-items-center mx-auto text-light" data-aos="flip-up"
+                        style="width: fit-content;">
+                        <h1 class="judul">About Me</h1>
+                        <span class="d-flex gap-2" style="font-size: large;"><img src="/asset/images/code-slash.svg"
+                                alt="">Code, Coffe & Ambition</span>
+                    </div>
+                    <!-- Judul End -->
+
+                    <!-- Isi -->
+                    <div class="d-flex flex-column align-items-center p-4">
+                        <div class="row d-flex justify-content-evenly">
+                            <div class="col-md-6 mt-4 p-3 kartu rounded-3" data-aos="zoom-in-up">
+                                <h3 class="ps-4 py-3">About Me</h3>
+                                <div class="mx-1 card text-bg-dark rounded-4">
+                                    <div class="card-header d-flex justify-content-between align-items-center"
+                                        style="background-color: rgb(23, 23, 23);border-radius: 15px 15px 0 0;">
+                                        <span></span>
+                                        <span>whoami.txt</span>
                                     </div>
-                                    <div class="d-flex align-items-center instagram" style="height: 35px;">
-                                        <a href="https://www.instagram.com/deyand.__">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
-                                                fill="white" class="bi bi-instagram icon-instagram" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-                                            </svg>
-                                        </a>
+                                    <div class="card-body" style="line-height: 1.8;">
+                                        <p>
+                                            Hai! Saya Defry Yandy, Seorang Mahasiswa Sistem Informasi.
+                                            Memiliki ketertarikan yang besar terhadap dunia programming seperti Web
+                                            Development, Pengembangan Perangkat Lunak ,IoT , dan
+                                            <u>saat ini saya mendalami bidang Web Development</u>.
+                                            Mempelajari HTML, CSS, Javascript, Basic
+                                            PHP, Beberapa Framework Dan lainnya.
+                                        </p>
+                                        <span>
+                                            Selain itu, saya juga mempelajari Python untuk Pengembangan Perangkat Lunak,
+                                            Project Yang pernah saya buat adalah Hand Gesture Control,
+                                            mempelajari Basic Design Figma untuk membantu mendesign Web saya meskipun
+                                            jarang saya gunakan.
+                                            Ketika tidak sedang menulis kode, saya juga suka menggambar, atau sekadar
+                                            menikmati waktu santai dengan orang terdekat.
+                                        </span>
                                     </div>
-                                    <div class="d-flex align-items-center youtube" style="height: 35px;">
-                                        <a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
-                                                fill="white" class="bi bi-youtube icon-youtube" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
-                                            </svg>
-                                        </a>
+                                </div>
+                                <div class="mt-2">
+                                    <div class="row py-2 d-flex align-items-center">
+                                        <div class="col-md-6 order-2 d-flex align-items-center mb-2">
+                                            <div style="aspect-ratio: 1/1;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px"
+                                                    fill="white" class="bi bi-code-slash" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0" />
+                                                </svg>
+                                            </div>
+                                            <div class="row ms-1">
+                                                <div class="col-12">
+                                                    <span class="fw-semibold fs-5">Development</span>
+                                                </div>
+                                                <div class="col-12">
+                                                    <span>Web | Design | Drawing?</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 order-1 d-flex align-items-center mb-2">
+                                            <div style="aspect-ratio: 1/1;">
+                                                <svg fill="currentColor" height="50px" width="50px"
+                                                    viewBox="0 0 482.813 482.813">
+                                                    <g>
+                                                        <path
+                                                            d="M153.668,357.985c8.163,0,14.799-6.632,14.799-14.802V147.648c0-8.174-6.636-14.802-14.799-14.802h-44.074
+                                                    c-8.167,0-14.804,6.627-14.804,14.802v195.535c0,8.17,6.637,14.802,14.804,14.802H153.668z" />
+                                                        <path
+                                                            d="M263.441,357.985c8.167,0,14.786-6.632,14.786-14.802v-195.52c0-8.174-6.619-14.802-14.786-14.802h-44.074
+                                                    c-8.163,0-14.799,6.628-14.799,14.802v195.52c0,8.17,6.636,14.802,14.799,14.802H263.441z" />
+                                                        <path
+                                                            d="M373.218,357.985c8.163,0,14.786-6.632,14.786-14.802V147.648c0-8.174-6.623-14.802-14.786-14.802h-44.074
+                                                    c-8.181,0-14.817,6.627-14.817,14.802v195.535c0,8.17,6.636,14.802,14.817,14.802H373.218z" />
+                                                        <path d="M79.69,105.645h323.383c3.328,0,6.227-2.239,7.06-5.446c0.851-3.209-0.568-6.58-3.467-8.212L245.963,1.208
+                                                    c-2.855-1.611-6.322-1.611-9.163,0L76.115,91.987c-2.904,1.632-4.322,5.003-3.485,8.212
+                                                    C73.463,103.407,76.367,105.645,79.69,105.645z" />
+                                                        <path
+                                                            d="M74.616,395.869c0,11.146,9.032,20.177,20.175,20.177h293.213c11.162,0,20.175-9.031,20.175-20.177
+                                                    c0-11.144-9.014-20.175-20.175-20.175H94.791C83.648,375.694,74.616,384.725,74.616,395.869z" />
+                                                        <path
+                                                            d="M419.372,434.387H63.441c-13.385,0-24.214,10.837-24.214,24.211c0,13.376,10.829,24.215,24.214,24.215h355.931
+                                                    c13.368,0,24.214-10.839,24.214-24.215C443.586,445.224,432.74,434.387,419.372,434.387z" />
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <div class="row ms-1">
+                                                <div class="col-12">
+                                                    <span class="fw-semibold fs-5">Education</span>
+                                                </div>
+                                                <div class="col-12">
+                                                    <span>Jambi University</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="d-flex align-items-center linkedin" style="height: 35px;">
-                                        <a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
-                                                fill="white" class="bi bi-linkedin icon-linkedin" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-                                            </svg>
-                                        </a>
-                                    </div>
-                                    <div class="d-flex align-items-center whatsapp" style="height: 35px;">
-                                        <a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
-                                                fill="white" class="bi bi-whatsapp icon-whatsapp" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
-                                            </svg>
-                                        </a>
-                                    </div>
-                                    <a href="#"
-                                        class="btn btn-outline-light d-flex align-items-center justify-content-center gap-1 ms-4 cv"
-                                        style="width: 20%;">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
-                                            fill="currentColor" class="bi bi-file-earmark-person-fill"
-                                            viewBox="0 0 16 16">
+                                </div>
+                            </div>
+                            <div class="col-md-5 mt-4 p-3 kartu rounded-3" id="skills" data-aos="zoom-in-up">
+                                <h3 class="ps-4 py-3">Skills</h3>
+                                <!-- Skill 1 -->
+                                <div class="mx-1 mb-3 d-flex align-items-center gap-2">
+                                    <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
+                                        style="aspect-ratio: 1/1;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                                            fill="currentColor" class="bi bi-globe-asia-australia" viewBox="0 0 16 16">
                                             <path
-                                                d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0m2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755" />
-                                        </svg>
-                                        CV</a>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 order-1 d-flex justify-content-center">
-                                <!-- Profile IMage -->
-                                <div class="profile-hologram">
-                                    <div class="profile-wrapper" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
-                                        <img src="/asset/images/GUA.jpg" class="profile-img" alt="Profile">
-                                        <div class="hologram-content">
-                                            <div class="glitch" data-text="Deyand">Deyand</div>
-                                            <div class="glitch-small" data-text="Defry Yandy">Defry Yandy</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Home Isi end -->
-
-
-            <!-- About Me-->
-            <div id="aboutMe" style="height: fit-content;padding-top: 70px;padding-bottom: 70px;">
-                <!-- Judul -->
-                <div class="d-flex flex-column align-items-center text-light">
-                    <h1 class="judul">About Me</h1>
-                    <span class="d-flex gap-2" style="font-size: large;"><img src="/asset/images/code-slash.svg"
-                            alt="">Code, Coffe & Ambition</span>
-                </div>
-                <!-- Judul End -->
-
-                <!-- Isi -->
-                <div class="d-flex flex-column align-items-center p-4">
-                    <div class="row d-flex justify-content-evenly" id="skills">
-                        <div class="col-md-6 mt-4 p-3 kartu rounded-3">
-                            <h3 class="ps-4 py-3">About Me</h3>
-                            <div class="mx-1 card text-bg-dark rounded-4">
-                                <div class="card-header d-flex justify-content-between align-items-center"
-                                    style="background-color: rgb(23, 23, 23);border-radius: 15px 15px 0 0;">
-                                    <span></span>
-                                    <span>whoami.txt</span>
-                                </div>
-                                <div class="card-body" style="line-height: 1.8;">
-                                    <p>
-                                        Hai! Saya Defry Yandy, Seorang Mahasiswa Sistem Informasi.
-                                        Memiliki ketertarikan yang besar terhadap dunia programming seperti Web
-                                        Development, Pengembangan Perangkat Lunak ,IoT , dan
-                                        <u>saat ini saya mendalami bidang Web Development</u>.
-                                        Mempelajari HTML, CSS, Javascript, Basic
-                                        PHP, Beberapa Framework Dan lainnya.
-                                    </p>
-                                    <span>
-                                        Selain itu, saya juga mempelajari Python untuk Pengembangan Perangkat Lunak,
-                                        Project Yang pernah saya buat adalah Hand Gesture Control,
-                                        mempelajari Basic Design Figma untuk membantu mendesign Web saya meskipun
-                                        jarang saya gunakan.
-                                        Ketika tidak sedang menulis kode, saya juga suka menggambar, atau sekadar
-                                        menikmati waktu santai dengan orang terdekat.
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="px-4 mt-2">
-                                <div class="row py-2">
-                                    <div class="col-6 order-2 d-flex align-items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" fill="white"
-                                            class="bi bi-code-slash" viewBox="0 0 16 16">
+                                                d="m10.495 6.92 1.278-.619a.483.483 0 0 0 .126-.782c-.252-.244-.682-.139-.932.107-.23.226-.513.373-.816.53l-.102.054c-.338.178-.264.626.1.736a.48.48 0 0 0 .346-.027ZM7.741 9.808V9.78a.413.413 0 1 1 .783.183l-.22.443a.6.6 0 0 1-.12.167l-.193.185a.36.36 0 1 1-.5-.516l.112-.108a.45.45 0 0 0 .138-.326M5.672 12.5l.482.233A.386.386 0 1 0 6.32 12h-.416a.7.7 0 0 1-.419-.139l-.277-.206a.302.302 0 1 0-.298.52z" />
                                             <path
-                                                d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0" />
+                                                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M1.612 10.867l.756-1.288a1 1 0 0 1 1.545-.225l1.074 1.005a.986.986 0 0 0 1.36-.011l.038-.037a.88.88 0 0 0 .26-.755c-.075-.548.37-1.033.92-1.099.728-.086 1.587-.324 1.728-.957.086-.386-.114-.83-.361-1.2-.207-.312 0-.8.374-.8.123 0 .24-.055.318-.15l.393-.474c.196-.237.491-.368.797-.403.554-.064 1.407-.277 1.583-.973.098-.391-.192-.634-.484-.88-.254-.212-.51-.426-.515-.741a7 7 0 0 1 3.425 7.692 1 1 0 0 0-.087-.063l-.316-.204a1 1 0 0 0-.977-.06l-.169.082a1 1 0 0 1-.741.051l-1.021-.329A1 1 0 0 0 11.205 9h-.165a1 1 0 0 0-.945.674l-.172.499a1 1 0 0 1-.404.514l-.802.518a1 1 0 0 0-.458.84v.455a1 1 0 0 0 1 1h.257a1 1 0 0 1 .542.16l.762.49a1 1 0 0 0 .283.126 7 7 0 0 1-9.49-3.409Z" />
                                         </svg>
-                                        <div class="row ms-1">
-                                            <div class="col-12">
-                                                <span class="fw-semibold fs-5">Development</span>
-                                            </div>
-                                            <div class="col-12">
-                                                <span>Web | Design | Drawing?</span>
+                                    </div>
+                                    <div class="d-flex flex-column w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>Web Development</span>
+                                            <span id="progress-web">35%</span>
+                                        </div>
+                                        <div>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
+                                                style="height: 8px;">
+                                                <div class="progress-bar rounded" id="progress-skill-web"
+                                                    style="width: 38%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 order-1 d-flex align-items-center">
-                                        <svg fill="currentColor" height="50px" width="50px" version="1.1" id="Capa_1"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 482.813 482.813"
-                                            xml:space="preserve">
-                                            <g>
-                                                <path
-                                                    d="M153.668,357.985c8.163,0,14.799-6.632,14.799-14.802V147.648c0-8.174-6.636-14.802-14.799-14.802h-44.074
-                                        		c-8.167,0-14.804,6.627-14.804,14.802v195.535c0,8.17,6.637,14.802,14.804,14.802H153.668z" />
-                                                <path
-                                                    d="M263.441,357.985c8.167,0,14.786-6.632,14.786-14.802v-195.52c0-8.174-6.619-14.802-14.786-14.802h-44.074
-                                        		c-8.163,0-14.799,6.628-14.799,14.802v195.52c0,8.17,6.636,14.802,14.799,14.802H263.441z" />
-                                                <path
-                                                    d="M373.218,357.985c8.163,0,14.786-6.632,14.786-14.802V147.648c0-8.174-6.623-14.802-14.786-14.802h-44.074
-                                        		c-8.181,0-14.817,6.627-14.817,14.802v195.535c0,8.17,6.636,14.802,14.817,14.802H373.218z" />
-                                                <path d="M79.69,105.645h323.383c3.328,0,6.227-2.239,7.06-5.446c0.851-3.209-0.568-6.58-3.467-8.212L245.963,1.208
-                                        		c-2.855-1.611-6.322-1.611-9.163,0L76.115,91.987c-2.904,1.632-4.322,5.003-3.485,8.212
-                                        		C73.463,103.407,76.367,105.645,79.69,105.645z" />
-                                                <path
-                                                    d="M74.616,395.869c0,11.146,9.032,20.177,20.175,20.177h293.213c11.162,0,20.175-9.031,20.175-20.177
-                                        		c0-11.144-9.014-20.175-20.175-20.175H94.791C83.648,375.694,74.616,384.725,74.616,395.869z" />
-                                                <path
-                                                    d="M419.372,434.387H63.441c-13.385,0-24.214,10.837-24.214,24.211c0,13.376,10.829,24.215,24.214,24.215h355.931
-                                        		c13.368,0,24.214-10.839,24.214-24.215C443.586,445.224,432.74,434.387,419.372,434.387z" />
-                                            </g>
+                                </div>
+
+                                <!-- Skill 2 -->
+                                <div class="mx-1 mb-3 d-flex align-items-center gap-2">
+                                    <div class="icon-skills rounded-4 d-flex align-items-center p-2"
+                                        style="aspect-ratio: 1/1;">
+                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="35"
+                                            height="35" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m8 8-4 4 4 4m8 0 4-4-4-4m-2-3-4 14" />
                                         </svg>
-                                        <div class="row ms-1">
-                                            <div class="col-12">
-                                                <span class="fw-semibold fs-5">Education</span>
+                                    </div>
+                                    <div class="d-flex flex-column w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>Programming</span>
+                                            <span id="progress-programming">12%</span>
+                                        </div>
+                                        <div>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
+                                                style="height: 8px;">
+                                                <div class="progress-bar rounded" id="progress-skill-programming"
+                                                    style="width: 12%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                                </div>
                                             </div>
-                                            <div class="col-12">
-                                                <span>Jambi University</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Skill 3 -->
+                                <div class="mx-1 mb-3 d-flex align-items-center gap-2">
+                                    <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
+                                        style="aspect-ratio: 1/1;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                                            fill="currentColor" class="bi bi-robot" viewBox="0 0 16 16">
+                                            <path
+                                                d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5M3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.6 26.6 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.93.93 0 0 1-.765.935c-.845.147-2.34.346-4.235.346s-3.39-.2-4.235-.346A.93.93 0 0 1 3 9.219zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a25 25 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25 25 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135" />
+                                            <path
+                                                d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2zM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5" />
+                                        </svg>
+                                    </div>
+                                    <div class="d-flex flex-column w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>IoT</span>
+                                            <span id="progress-unknown">??%</span>
+                                        </div>
+                                        <div>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
+                                                style="height: 8px;">
+                                                <div class="progress-bar rounded progress-skill-unknown1"
+                                                    style="width: 100%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Skill 4 -->
+                                <div class="mx-1 mb-3 d-flex align-items-center gap-2">
+                                    <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
+                                        style="aspect-ratio: 1/1;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                                            fill="currentColor" class="bi bi-shield-shaded" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M8 14.933a1 1 0 0 0 .1-.025q.114-.034.294-.118c.24-.113.547-.29.893-.533a10.7 10.7 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.8 11.8 0 0 1-2.517 2.453 7 7 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7 7 0 0 1-1.048-.625 11.8 11.8 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 63 63 0 0 1 5.072.56" />
+                                        </svg>
+                                    </div>
+                                    <div class="d-flex flex-column w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>Cyber Security</span>
+                                            <span id="progress-unknown">??%</span>
+                                        </div>
+                                        <div>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
+                                                style="height: 8px;">
+                                                <div class="progress-bar rounded progress-skill-unknown2"
+                                                    style="width: 100%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Skill 5 -->
+                                <div class="mx-1 mb-3 d-flex align-items-center gap-2">
+                                    <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
+                                        style="aspect-ratio: 1/1;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                                            fill="currentColor" class="bi bi-vector-pen" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M10.646.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1 0 .708l-1.902 1.902-.829 3.313a1.5 1.5 0 0 1-1.024 1.073L1.254 14.746 4.358 4.4A1.5 1.5 0 0 1 5.43 3.377l3.313-.828zm-1.8 2.908-3.173.793a.5.5 0 0 0-.358.342l-2.57 8.565 8.567-2.57a.5.5 0 0 0 .34-.357l.794-3.174-3.6-3.6z" />
+                                            <path fill-rule="evenodd"
+                                                d="M2.832 13.228 8 9a1 1 0 1 0-1-1l-4.228 5.168-.026.086z" />
+                                        </svg>
+                                    </div>
+                                    <div class="d-flex flex-column w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>Drawing</span>
+                                            <span id="progress-draw">40%</span>
+                                        </div>
+                                        <div>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
+                                                style="height: 8px;">
+                                                <div class="progress-bar rounded" id="progress-skill-draw"
+                                                    style="width: 50%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-5 mt-4 p-3 kartu rounded-3">
-                            <h3 class="ps-4 py-3">Skills</h3>
-                            <!-- Skill 1 -->
-                            <div class="mx-1 mb-3 d-flex align-items-center gap-2">
-                                <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
-                                    style="aspect-ratio: 1/1;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-                                        class="bi bi-globe-asia-australia" viewBox="0 0 16 16">
-                                        <path
-                                            d="m10.495 6.92 1.278-.619a.483.483 0 0 0 .126-.782c-.252-.244-.682-.139-.932.107-.23.226-.513.373-.816.53l-.102.054c-.338.178-.264.626.1.736a.48.48 0 0 0 .346-.027ZM7.741 9.808V9.78a.413.413 0 1 1 .783.183l-.22.443a.6.6 0 0 1-.12.167l-.193.185a.36.36 0 1 1-.5-.516l.112-.108a.45.45 0 0 0 .138-.326M5.672 12.5l.482.233A.386.386 0 1 0 6.32 12h-.416a.7.7 0 0 1-.419-.139l-.277-.206a.302.302 0 1 0-.298.52z" />
-                                        <path
-                                            d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M1.612 10.867l.756-1.288a1 1 0 0 1 1.545-.225l1.074 1.005a.986.986 0 0 0 1.36-.011l.038-.037a.88.88 0 0 0 .26-.755c-.075-.548.37-1.033.92-1.099.728-.086 1.587-.324 1.728-.957.086-.386-.114-.83-.361-1.2-.207-.312 0-.8.374-.8.123 0 .24-.055.318-.15l.393-.474c.196-.237.491-.368.797-.403.554-.064 1.407-.277 1.583-.973.098-.391-.192-.634-.484-.88-.254-.212-.51-.426-.515-.741a7 7 0 0 1 3.425 7.692 1 1 0 0 0-.087-.063l-.316-.204a1 1 0 0 0-.977-.06l-.169.082a1 1 0 0 1-.741.051l-1.021-.329A1 1 0 0 0 11.205 9h-.165a1 1 0 0 0-.945.674l-.172.499a1 1 0 0 1-.404.514l-.802.518a1 1 0 0 0-.458.84v.455a1 1 0 0 0 1 1h.257a1 1 0 0 1 .542.16l.762.49a1 1 0 0 0 .283.126 7 7 0 0 1-9.49-3.409Z" />
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <span>Web Development</span>
-                                        <span id="progress-web">35%</span>
+
+                        <!-- Language Programming -->
+                        <div class="row kartu mt-4 d-flex justify-content-evenly rounded-3" style="width: 92vw;"
+                            id="language" data-aos="fade-up">
+                            <div class="col-md-6 p-3">
+                                <h3 class="ps-4 py-3">Language</h3>
+                                <!-- Language HTML -->
+                                <div class="mx-4 mb-3 d-flex align-items-center gap-2">
+                                    <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
+                                        style="aspect-ratio: 1/1;">
+                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="35"
+                                            height="35" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="m3 2 1.578 17.824L12 22l7.467-2.175L21 2H3Zm14.049 6.048H9.075l.172 2.016h7.697l-.626 6.565-4.246 1.381-4.281-1.455-.288-2.932h2.024l.16 1.411 2.4.815 2.346-.763.297-3.005H7.416l-.562-6.05h10.412l-.217 2.017Z" />
+                                        </svg>
                                     </div>
-                                    <div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
-                                            style="height: 8px;">
-                                            <div class="progress-bar rounded" id="progress-skill-web"
-                                                style="width: 38%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                    <div class="d-flex flex-column w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>HTML</span>
+                                            <span id="html-persen">0%</span>
+                                        </div>
+                                        <div>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
+                                                style="height: 8px;">
+                                                <div class="progress-bar rounded" id="html-progress"
+                                                    style="width: 0%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Language CSS -->
+                                <div class="mx-4 mb-3 d-flex align-items-center gap-2">
+                                    <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
+                                        style="aspect-ratio: 1/1;">
+                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="35"
+                                            height="35" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="m3 2 1.578 17.834L12 22l7.468-2.165L21 2H3Zm13.3 14.722-4.293 1.204H12l-4.297-1.204-.297-3.167h2.108l.15 1.526 2.335.639 2.34-.64.245-3.05h-7.27l-.187-2.006h7.64l.174-2.006H6.924l-.176-2.006h10.506l-.954 10.71Z" />
+                                        </svg>
+                                    </div>
+                                    <div class="d-flex flex-column w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>CSS</span>
+                                            <span id="css-persen">0%</span>
+                                        </div>
+                                        <div>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
+                                                style="height: 8px;">
+                                                <div class="progress-bar rounded" id="css-progress"
+                                                    style="width: 0%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Language Javascript -->
+                                <div class="mx-4 mb-3 d-flex align-items-center gap-2">
+                                    <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
+                                        style="aspect-ratio: 1/1;">
+                                        <svg viewBox="0 0 35 35" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                                            id="Javascript-Fill--Streamline-Remix-Fill" height="35" width="35">
+                                            <desc>Javascript Fill Streamline Icon: https://streamlinehq.com</desc>
+                                            <path
+                                                d="M8.75 4.375C6.3337604166666654 4.375 4.375 6.3337604166666654 4.375 8.75v17.5c0 2.4163125 1.9587604166666666 4.375 4.375 4.375h17.5c2.4163125 0 4.375 -1.9586875 4.375 -4.375V8.75c0 -2.416239583333333 -1.9586875 -4.375 -4.375 -4.375H8.75Zm10.696 19.038541666666664c1.0481041666666666 0.8448125 2.0960625 1.2618958333333332 3.1441666666666666 1.25125 0.6416666666666666 0 1.1335625 -0.11768749999999999 1.4758333333333333 -0.35291666666666666 0.33147916666666666 -0.22458333333333333 0.4972916666666667 -0.5454166666666667 0.4972916666666667 -0.9625 0 -0.42772916666666666 -0.16581249999999997 -0.7914374999999999 -0.4972916666666667 -1.0908333333333333 -0.3422708333333333 -0.2993958333333333 -0.9891875 -0.5989375 -1.9410416666666666 -0.8983333333333333 -1.1443541666666666 -0.33147916666666666 -2.0266458333333333 -0.7593541666666667 -2.6468749999999996 -1.2833333333333332 -0.6095833333333333 -0.5239791666666667 -0.9197708333333333 -1.2566458333333332 -0.9304166666666667 -2.197708333333333 0 -0.8876875 0.385 -1.6308541666666667 1.155 -2.2297916666666664 0.7485624999999999 -0.5989375 1.7058125 -0.8983333333333333 2.8714583333333334 -0.8983333333333333 1.6256041666666665 0 2.9302291666666664 0.3956458333333333 3.9141666666666666 1.1870833333333333l-1.1229166666666666 1.7485416666666667c-0.3956458333333333 -0.3101875 -0.8502083333333332 -0.5347708333333333 -1.3635416666666667 -0.67375 -0.5133333333333333 -0.16041666666666665 -0.9731458333333333 -0.240625 -1.3795833333333332 -0.240625 -0.5560624999999999 0 -0.9999791666666665 0.10164583333333332 -1.3314583333333334 0.3047916666666666 -0.33147916666666666 0.20314583333333333 -0.4972916666666667 0.4706041666666666 -0.4972916666666667 0.8020833333333334 0 0.36356249999999996 0.20314583333333333 0.67375 0.6095833333333333 0.9304166666666667 0.4064375 0.2460208333333333 1.1014791666666666 0.5187291666666667 2.0854166666666663 0.818125 1.1870833333333333 0.35291666666666666 2.031895833333333 0.8235208333333333 2.5345833333333334 1.4116666666666666s0.7539583333333333 1.3368541666666665 0.7539583333333333 2.245833333333333c0 0.9304166666666667 -0.3583125 1.7325 -1.0747916666666666 2.4062499999999996 -0.7058333333333333 0.6631041666666666 -1.7325 1.0106249999999999 -3.08 1.0427083333333331 -1.7645833333333332 0 -3.2404166666666665 -0.5293749999999999 -4.4275 -1.5881249999999998l1.25125 -1.7325Zm-8.06509375 0.9304166666666667c0.3422270833333333 0.21393749999999997 0.7539583333333333 0.3208333333333333 1.2352083333333332 0.3208333333333333 0.50264375 0 0.9197270833333332 -0.144375 1.25125 -0.433125 0.3315375 -0.2993958333333333 0.4972916666666667 -0.818125 0.4972916666666667 -1.5560416666666665v-7.732083333333333h2.1656979166666663v8.149166666666666c-0.03208333333333333 1.2618958333333332 -0.3957916666666666 2.171020833333333 -1.0908333333333333 2.7270833333333333 -0.3957916666666666 0.33147916666666666 -0.8289166666666666 0.5668541666666667 -1.2994479166666666 0.7058333333333333 -0.47054583333333333 0.13897916666666665 -0.9250645833333332 0.20854166666666663 -1.3635416666666667 0.20854166666666663 -0.8020833333333334 0 -1.5132541666666666 -0.13897916666666665 -2.133541666666667 -0.41708333333333325 -0.6630458333333333 -0.2993958333333333 -1.2191666666666665 -0.8287708333333333 -1.668333333333333 -1.5881249999999998l1.5079166666666666 -1.2352083333333332c0.27806041666666664 0.3743541666666666 0.5775 0.6577083333333333 0.8983333333333333 0.8502083333333332Z"
+                                                stroke-width="1"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="d-flex flex-column w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>Javascript</span>
+                                            <span id="js-persen">0%</span>
+                                        </div>
+                                        <div>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
+                                                style="height: 8px;">
+                                                <div class="progress-bar rounded" id="js-progress"
+                                                    style="width: 0%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Language PHP -->
+                                <div class="mx-4 mb-3 d-flex align-items-center gap-2">
+                                    <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
+                                        style="aspect-ratio: 1/1;">
+                                        <svg viewBox="0 0 35 35" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                            id="Php--Streamline-Simple-Icons" height="35" width="35">
+                                            <path
+                                                d="M10.222916666666666 14.885208333333333h-1.3766666666666665l-0.7510416666666666 3.861666666666667h1.2220833333333332c0.8108333333333334 0 1.4145833333333333 -0.15312499999999998 1.8112499999999998 -0.45791666666666664 0.39666666666666667 -0.30624999999999997 0.6635416666666667 -0.8152083333333334 0.8020833333333334 -1.5297916666666664 0.13416666666666666 -0.6854166666666666 0.07291666666666667 -1.1695833333333334 -0.18083333333333332 -1.4510416666666666 -0.2552083333333333 -0.2814583333333333 -0.7627083333333333 -0.4229166666666666 -1.5268749999999998 -0.4229166666666666zM17.5 8.295C7.835625 8.295 0 12.416249999999998 0 17.5s7.835625 9.206458333333332 17.5 9.206458333333332S35 22.58375 35 17.5c0 -5.08375 -7.835625 -9.205 -17.5 -9.205zm-4.754166666666666 10.866041666666666c-0.380625 0.3645833333333333 -0.8385416666666665 0.6387499999999999 -1.3372916666666665 0.8035416666666667 -0.49 0.1575 -1.1156249999999999 0.23916666666666667 -1.8739583333333332 0.23916666666666667H7.812291666666667l-0.476875 2.451458333333333H5.325833333333334l1.79375 -9.225416666666666h3.864583333333333c1.1622916666666667 0 2.009583333333333 0.3047916666666666 2.543333333333333 0.9158333333333333 0.53375 0.6095833333333333 0.6941666666666666 1.46125 0.48125 2.5549999999999997a4.135833333333333 4.135833333333333 0 0 1 -0.44479166666666664 1.2352083333333332c-0.20854166666666663 0.371875 -0.48125 0.7145833333333332 -0.818125 1.0252083333333333zm5.868333333333333 1.0427083333333331 0.791875 -4.081874999999999c0.091875 -0.46375 0.056874999999999995 -0.7816666666666666 -0.09916666666666667 -0.949375 -0.15604166666666666 -0.16916666666666666 -0.49 -0.25375 -1.001875 -0.25375H16.712500000000002l-1.0266666666666666 5.286458333333333H13.690833333333332l1.79375 -9.226875h1.9935416666666665l-0.476875 2.4529166666666664h1.7762499999999999c1.1185416666666665 0 1.8885416666666666 0.19541666666666666 2.3129166666666667 0.5847916666666667s0.55125 1.0208333333333333 0.38354166666666667 1.8943749999999997l-0.8341666666666665 4.293333333333333h-2.025625zm11.078958333333333 -3.303125a4.057083333333333 4.057083333333333 0 0 1 -0.44479166666666664 1.2352083333333332c-0.20854166666666663 0.371875 -0.48125 0.7145833333333332 -0.818125 1.0252083333333333a3.558333333333333 3.558333333333333 0 0 1 -1.3372916666666665 0.8035416666666667c-0.49 0.1575 -1.1156249999999999 0.23916666666666667 -1.8754166666666665 0.23916666666666667h-1.7208333333333332l-0.476875 2.4529166666666664h-2.009583333333333l1.79375 -9.225416666666666h3.8631249999999997c1.1622916666666667 0 2.009583333333333 0.3047916666666666 2.543333333333333 0.9158333333333333 0.53375 0.6081249999999999 0.6956249999999999 1.4597916666666664 0.48270833333333335 2.5535416666666664zm-3.7843750000000003 -2.0154166666666664h-1.3752083333333331l-0.7525 3.861666666666667h1.2220833333333332c0.8122916666666667 0 1.4160416666666666 -0.15312499999999998 1.8112499999999998 -0.45791666666666664 0.39666666666666667 -0.30624999999999997 0.6635416666666667 -0.8152083333333334 0.8035416666666667 -1.5297916666666664 0.13416666666666666 -0.6854166666666666 0.07145833333333333 -1.1695833333333334 -0.18229166666666666 -1.4510416666666666s-0.7641666666666667 -0.4229166666666666 -1.5268749999999998 -0.4229166666666666z"
+                                                stroke-width="1"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="d-flex flex-column w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>PHP native</span>
+                                            <span id="php-persen">0%</span>
+                                        </div>
+                                        <div>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
+                                                style="height: 8px;">
+                                                <div class="progress-bar rounded" id="php-progress"
+                                                    style="width: 0%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Language Python -->
+                                <div class="mx-4 mb-3 d-flex align-items-center gap-2">
+                                    <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
+                                        style="aspect-ratio: 1/1;">
+                                        <svg role="img" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg"
+                                            id="Python--Streamline-Simple-Icons" height="35" width="35"
+                                            fill="currentColor">
+                                            <path
+                                                d="m26.613750000000003 0.8887499999999999 1.6455000000000002 0.36562500000000003 1.3348125 0.4755 1.0786875 0.5484374999999999 0.8227500000000001 0.5851875 0.6215625 0.6215625 0.457125 0.6215625 0.2925 0.603375 0.18300000000000002 0.548625 0.073125 0.4753125 0.0365625 0.36562500000000003 -0.018375 0.23775v9.7635l-0.09150000000000001 1.1518125 -0.2375625 1.0055625 -0.384 0.841125 -0.4753125 0.6946875 -0.548625 0.5668125 -0.603375 0.457125 -0.6399374999999999 0.3474375 -0.63975 0.25593750000000004 -0.603375 0.18281250000000002 -0.548625 0.1280625 -0.4753125 0.073125 -0.384 0.0365625H16.5943125l-1.2614999999999998 0.0913125 -1.0786875 0.25593750000000004 -0.91425 0.40237500000000004 -0.749625 0.4935 -0.603375 0.5851875 -0.4935 0.6399374999999999 -0.3658125 0.658125 -0.274125 0.6765 -0.18281250000000002 0.6399374999999999 -0.1280625 0.585 -0.073125 0.49368749999999995 -0.0365625 0.384v5.594812500000001H6.3555l-0.3838125 -0.0549375 -0.5120625 -0.127875 -0.585 -0.21937500000000001 -0.6399374999999999 -0.32925 -0.658125 -0.4753125 -0.6583125000000001 -0.658125 -0.6399374999999999 -0.841125 -0.585 -1.0786875 -0.5118750000000001 -1.334625 -0.384 -1.609125 -0.25593750000000004 -1.9196250000000001L0.44999999999999996 22.44525l0.10968750000000001 -2.2306875 0.2925 -1.9014375000000001 0.4389375 -1.59075 0.585 -1.2980625000000001 0.658125 -1.042125 0.7314375 -0.8045625 0.7678125 -0.603375 0.768 -0.43875000000000003 0.7312500000000001 -0.2925 0.6583125000000001 -0.18281250000000002 0.585 -0.09150000000000001 0.4389375 -0.018187500000000002h0.2925l0.10968750000000001 0.018187500000000002h14.919375V10.45125H11.859L11.840625000000001 5.4232499999999995l-0.0365625 -0.6765 0.09150000000000001 -0.62175 0.201 -0.5668125 0.310875 -0.5118750000000001 0.457125 -0.4753125 0.5668125 -0.4205625 0.6946875 -0.36562500000000003 0.8045625 -0.3290625 0.9324375 -0.2743125 1.0605 -0.21937500000000001 1.17 -0.18281250000000002 1.2982500000000001 -0.10968750000000001 1.40775 -0.073125 1.5358125 -0.0365625 2.322 0.0913125ZM15.095062500000001 4.5089999999999995l-0.420375 0.603375 -0.14625 0.749625 0.14625 0.749625 0.420375 0.6215625 0.603375 0.4021875 0.749625 0.164625 0.749625 -0.164625 0.603375 -0.4021875 0.4205625 -0.6215625 0.14625 -0.749625 -0.14625 -0.749625 -0.4205625 -0.603375 -0.603375 -0.40237500000000004 -0.749625 -0.16443750000000001 -0.749625 0.16443750000000001Zm23.93325 7.2219375 0.5120625 0.10968750000000001 0.585 0.21937500000000001 0.6399374999999999 0.32925 0.658125 0.4935 0.6583125000000001 0.6399374999999999 0.6399374999999999 0.8593124999999999 0.585 1.078875 0.5118750000000001 1.334625 0.384 1.6089375 0.25593750000000004 1.9014375000000001 0.09150000000000001 2.248875 -0.10968750000000001 2.248875 -0.2925 1.901625 -0.4389375 1.572375 -0.585 1.2980625000000001 -0.6583125000000001 1.042125 -0.7312500000000001 0.8227500000000001 -0.768 0.603375 -0.7678125 0.4389375 -0.7314375 0.2925 -0.658125 0.16443750000000001 -0.585 0.09150000000000001 -0.4389375 0.0365625 -0.2925 -0.018187500000000002h-15.029062499999998v1.49925h10.6775625l0.018375 5.0461875 0.0365625 0.658125 -0.09150000000000001 0.62175 -0.201 0.5668125 -0.310875 0.53025 -0.457125 0.4569375 -0.5668125 0.4389375 -0.6946875 0.36562500000000003 -0.8045625 0.310875 -0.9324375 0.274125 -1.0605 0.23775 -1.17 0.164625 -1.2982500000000001 0.127875 -1.40775 0.073125 -1.5358125 0.018375 -2.322 -0.073125 -1.9563750000000002 -0.256125 -1.6455000000000002 -0.36562500000000003 -1.3348125 -0.457125 -1.0786875 -0.5484374999999999 -0.8227500000000001 -0.603375 -0.6215625 -0.6215625 -0.457125 -0.62175 -0.2925 -0.603375 -0.18300000000000002 -0.5484374999999999 -0.073125 -0.457125 -0.0365625 -0.36562500000000003 0.018375 -0.23775v-9.7633125l0.09150000000000001 -1.1701875 0.2375625 -0.9873749999999999 0.384 -0.8409375 0.4753125 -0.694875 0.548625 -0.585 0.603375 -0.4389375 0.6399374999999999 -0.36562500000000003 0.63975 -0.25593750000000004 0.603375 -0.18281250000000002 0.548625 -0.10968750000000001 0.4753125 -0.073125 0.384 -0.0365625 0.23775 -0.018375h10.6775625l1.2614999999999998 -0.0913125 1.0786875 -0.25593750000000004 0.91425 -0.384 0.749625 -0.5120625 0.603375 -0.585 0.49368749999999995 -0.6399374999999999 0.36562500000000003 -0.658125 0.2743125 -0.6583125000000001 0.18281250000000002 -0.6399374999999999 0.127875 -0.585 0.073125 -0.5118750000000001 0.0365625 -0.384V11.6578125h3.8212499999999996l0.256125 0.018375Zm-11.829375 26.0540625 -0.4205625 0.603375 -0.14625 0.749625 0.14625 0.749625 0.4205625 0.603375 0.603375 0.4205625 0.749625 0.14625 0.749625 -0.14625 0.603375 -0.4205625 0.420375 -0.603375 0.14625 -0.749625 -0.14625 -0.749625 -0.420375 -0.603375 -0.603375 -0.420375 -0.749625 -0.1464375 -0.749625 0.1464375Z"
+                                                stroke-width="1"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="d-flex flex-column w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>Python</span>
+                                            <span id="py-persen">0%</span>
+                                        </div>
+                                        <div>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
+                                                style="height: 8px;">
+                                                <div class="progress-bar rounded" id="py-progress"
+                                                    style="width: 0%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Skill 2 -->
-                            <div class="mx-1 mb-3 d-flex align-items-center gap-2">
-                                <div class="icon-skills rounded-4 d-flex align-items-center p-2"
-                                    style="aspect-ratio: 1/1;">
-                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="35" height="35"
-                                        fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m8 8-4 4 4 4m8 0 4-4-4-4m-2-3-4 14" />
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <span>Programming</span>
-                                        <span id="progress-programming">12%</span>
+                            <div class="col-md-6 p-3 rounded-3">
+                                <h3 class="ps-4 py-3">Framework</h3>
+                                <!-- Framework bootstrap -->
+                                <div class="mx-4 mb-3 d-flex align-items-center gap-2">
+                                    <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
+                                        style="aspect-ratio: 1/1;">
+                                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                            id="Bootstrap--Streamline-Simple-Icons" height="35" width="35"
+                                            fill="currentColor">
+                                            <path
+                                                d="M11.77 11.24H9.956V8.202h2.152c1.17 0 1.834 0.522 1.834 1.466 0 1.008 -0.773 1.572 -2.174 1.572zm0.324 1.206H9.957v3.348h2.231c1.459 0 2.232 -0.585 2.232 -1.685s-0.795 -1.663 -2.326 -1.663zM24 11.39v1.218c-1.128 0.108 -1.817 0.944 -2.226 2.268 -0.407 1.319 -0.463 2.937 -0.42 4.186 0.045 1.3 -0.968 2.5 -2.337 2.5H4.985c-1.37 0 -2.383 -1.2 -2.337 -2.5 0.043 -1.249 -0.013 -2.867 -0.42 -4.186 -0.41 -1.324 -1.1 -2.16 -2.228 -2.268V11.39c1.128 -0.108 1.819 -0.944 2.227 -2.268 0.408 -1.319 0.464 -2.937 0.42 -4.186 -0.045 -1.3 0.968 -2.5 2.338 -2.5h14.032c1.37 0 2.382 1.2 2.337 2.5 -0.043 1.249 0.013 2.867 0.42 4.186 0.409 1.324 1.098 2.16 2.226 2.268zm-7.927 2.817c0 -1.354 -0.953 -2.333 -2.368 -2.488v-0.057c1.04 -0.169 1.856 -1.135 1.856 -2.213 0 -1.537 -1.213 -2.538 -3.062 -2.538h-4.16v10.172h4.181c2.218 0 3.553 -1.086 3.553 -2.876z"
+                                                stroke-width="1"></path>
+                                        </svg>
                                     </div>
-                                    <div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
-                                            style="height: 8px;">
-                                            <div class="progress-bar rounded" id="progress-skill-programming"
-                                                style="width: 12%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                    <div class="d-flex flex-column w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>Bootstrap</span>
+                                            <span id="bp-persen">0%</span>
+                                        </div>
+                                        <div>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
+                                                style="height: 8px;">
+                                                <div class="progress-bar rounded" id="bp-progress"
+                                                    style="width: 0%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Skill 3 -->
-                            <div class="mx-1 mb-3 d-flex align-items-center gap-2">
-                                <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
-                                    style="aspect-ratio: 1/1;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-                                        class="bi bi-robot" viewBox="0 0 16 16">
-                                        <path
-                                            d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5M3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.6 26.6 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.93.93 0 0 1-.765.935c-.845.147-2.34.346-4.235.346s-3.39-.2-4.235-.346A.93.93 0 0 1 3 9.219zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a25 25 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25 25 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135" />
-                                        <path
-                                            d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2zM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5" />
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <span>IoT</span>
-                                        <span id="progress-unknown">??%</span>
+                                <!-- Framework tailwind -->
+                                <div class="mx-4 mb-3 d-flex align-items-center gap-2">
+                                    <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
+                                        style="aspect-ratio: 1/1;">
+                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="35"
+                                            height="35" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M11.782 5.72a4.773 4.773 0 0 0-4.8 4.173 3.43 3.43 0 0 1 2.741-1.687c1.689 0 2.974 1.972 3.758 2.587a5.733 5.733 0 0 0 5.382.935c2-.638 2.934-2.865 3.137-3.921-.969 1.379-2.44 2.207-4.259 1.231-1.253-.673-2.19-3.438-5.959-3.318ZM6.8 11.979A4.772 4.772 0 0 0 2 16.151a3.431 3.431 0 0 1 2.745-1.687c1.689 0 2.974 1.972 3.758 2.587a5.733 5.733 0 0 0 5.382.935c2-.638 2.933-2.865 3.137-3.921-.97 1.379-2.44 2.208-4.259 1.231-1.253-.673-2.19-3.443-5.963-3.317Z" />
+                                        </svg>
                                     </div>
-                                    <div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
-                                            style="height: 8px;">
-                                            <div class="progress-bar rounded progress-skill-unknown1"
-                                                style="width: 100%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                    <div class="d-flex flex-column w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>TailwindCss</span>
+                                            <span id="twc-persen">0%</span>
+                                        </div>
+                                        <div>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
+                                                style="height: 8px;">
+                                                <div class="progress-bar rounded" id="twc-progress"
+                                                    style="width: 0%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Skill 4 -->
-                            <div class="mx-1 mb-3 d-flex align-items-center gap-2">
-                                <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
-                                    style="aspect-ratio: 1/1;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-                                        class="bi bi-shield-shaded" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd"
-                                            d="M8 14.933a1 1 0 0 0 .1-.025q.114-.034.294-.118c.24-.113.547-.29.893-.533a10.7 10.7 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.8 11.8 0 0 1-2.517 2.453 7 7 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7 7 0 0 1-1.048-.625 11.8 11.8 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 63 63 0 0 1 5.072.56" />
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <span>Cyber Security</span>
-                                        <span id="progress-unknown">??%</span>
+                                <!-- Framework react -->
+                                <div class="mx-4 mb-3 d-flex align-items-center gap-2">
+                                    <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
+                                        style="aspect-ratio: 1/1;">
+                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="35"
+                                            height="35" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M21.718 12c0-1.429-1.339-2.681-3.467-3.5.029-.18.077-.37.1-.545.217-2.058-.273-3.543-1.379-4.182-1.235-.714-2.983-.186-4.751 1.239C10.45 3.589 8.7 3.061 7.468 3.773c-1.107.639-1.6 2.124-1.379 4.182.018.175.067.365.095.545-2.127.819-3.466 2.071-3.466 3.5 0 1.429 1.339 2.681 3.466 3.5-.028.18-.077.37-.095.545-.218 2.058.272 3.543 1.379 4.182.376.213.803.322 1.235.316a5.987 5.987 0 0 0 3.514-1.56 5.992 5.992 0 0 0 3.515 1.56 2.44 2.44 0 0 0 1.236-.316c1.106-.639 1.6-2.124 1.379-4.182-.019-.175-.067-.365-.1-.545 2.132-.819 3.471-2.071 3.471-3.5Zm-6.01-7.548a1.5 1.5 0 0 1 .76.187c.733.424 1.055 1.593.884 3.212-.012.106-.043.222-.058.33-.841-.243-1.7-.418-2.57-.523a16.165 16.165 0 0 0-1.747-1.972 4.9 4.9 0 0 1 2.731-1.234Zm-7.917 8.781c.172.34.335.68.529 1.017.194.337.395.656.6.969a14.09 14.09 0 0 1-1.607-.376 14.38 14.38 0 0 1 .478-1.61Zm-.479-4.076a14.085 14.085 0 0 1 1.607-.376c-.205.313-.405.634-.6.969-.195.335-.357.677-.529 1.017-.19-.527-.35-1.064-.478-1.61ZM8.3 12a19.32 19.32 0 0 1 .888-1.75c.33-.568.69-1.118 1.076-1.65.619-.061 1.27-.1 1.954-.1.684 0 1.333.035 1.952.1a19.63 19.63 0 0 1 1.079 1.654c.325.567.621 1.15.887 1.746a18.869 18.869 0 0 1-1.953 3.403 19.218 19.218 0 0 1-3.931 0 20.169 20.169 0 0 1-1.066-1.653A19.324 19.324 0 0 1 8.3 12Zm7.816 2.25c.2-.337.358-.677.53-1.017.191.527.35 1.065.478 1.611a14.48 14.48 0 0 1-1.607.376c.202-.314.404-.635.597-.97h.002Zm.53-3.483c-.172-.34-.335-.68-.53-1.017a20.214 20.214 0 0 0-.6-.97c.542.095 1.078.22 1.606.376a14.111 14.111 0 0 1-.478 1.611h.002ZM12.217 6.34c.4.375.777.773 1.13 1.193-.37-.02-.746-.033-1.129-.033s-.76.013-1.131.033c.353-.42.73-.817 1.13-1.193Zm-4.249-1.7a1.5 1.5 0 0 1 .76-.187 4.9 4.9 0 0 1 2.729 1.233A16.253 16.253 0 0 0 9.71 7.658c-.87.105-1.728.28-2.569.524-.015-.109-.047-.225-.058-.331-.171-1.619.151-2.787.885-3.211ZM3.718 12c0-.9.974-1.83 2.645-2.506.218.857.504 1.695.856 2.506-.352.811-.638 1.65-.856 2.506C4.692 13.83 3.718 12.9 3.718 12Zm4.25 7.361c-.734-.423-1.056-1.593-.885-3.212.011-.106.043-.222.058-.331.84.243 1.697.418 2.564.524a16.37 16.37 0 0 0 1.757 1.982c-1.421 1.109-2.714 1.488-3.494 1.037Zm3.11-2.895c.374.021.753.034 1.14.034.387 0 .765-.013 1.139-.034a14.4 14.4 0 0 1-1.14 1.215 14.248 14.248 0 0 1-1.139-1.215Zm5.39 2.895c-.782.451-2.075.072-3.5-1.038a16.248 16.248 0 0 0 1.757-1.981 16.41 16.41 0 0 0 2.565-.523c.015.108.046.224.058.33.175 1.619-.148 2.789-.88 3.212Zm1.6-4.854A16.563 16.563 0 0 0 17.216 12c.352-.812.638-1.65.856-2.507 1.671.677 2.646 1.607 2.646 2.507 0 .9-.975 1.83-2.646 2.507h-.004Z" />
+                                            <path
+                                                d="M12.215 13.773a1.792 1.792 0 1 0-1.786-1.8v.006a1.787 1.787 0 0 0 1.786 1.794Z" />
+                                        </svg>
                                     </div>
-                                    <div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
-                                            style="height: 8px;">
-                                            <div class="progress-bar rounded progress-skill-unknown2"
-                                                style="width: 100%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                    <div class="d-flex flex-column w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>React JS</span>
+                                            <span id="jsx-persen">??%</span>
+                                        </div>
+                                        <div>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
+                                                style="height: 8px;">
+                                                <div class="progress-bar rounded" id="jsx-progress"
+                                                    style="width: 0%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Skill 5 -->
-                            <div class="mx-1 mb-3 d-flex align-items-center gap-2">
-                                <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
-                                    style="aspect-ratio: 1/1;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-                                        class="bi bi-vector-pen" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd"
-                                            d="M10.646.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1 0 .708l-1.902 1.902-.829 3.313a1.5 1.5 0 0 1-1.024 1.073L1.254 14.746 4.358 4.4A1.5 1.5 0 0 1 5.43 3.377l3.313-.828zm-1.8 2.908-3.173.793a.5.5 0 0 0-.358.342l-2.57 8.565 8.567-2.57a.5.5 0 0 0 .34-.357l.794-3.174-3.6-3.6z" />
-                                        <path fill-rule="evenodd"
-                                            d="M2.832 13.228 8 9a1 1 0 1 0-1-1l-4.228 5.168-.026.086z" />
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <span>Drawing</span>
-                                        <span id="progress-draw">40%</span>
+                                <!-- Framework 1 -->
+                                <div class="mx-4 mb-3 d-flex align-items-center gap-2">
+                                    <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
+                                        style="aspect-ratio: 1/1;">
+                                        <svg role="img" viewBox="0 0 35 35" xmlns="http://www.w3.org/2000/svg"
+                                            id="Nodedotjs--Streamline-Simple-Icons" height="35" width="35"
+                                            fill="currentColor">
+                                            <path
+                                                d="M17.497083333333332 35c-0.468125 0 -0.9347916666666667 -0.1225 -1.3445833333333332 -0.3602083333333333L11.870833333333334 32.10666666666666c-0.6387499999999999 -0.3572916666666666 -0.32666666666666666 -0.4841666666666667 -0.11666666666666667 -0.5585416666666666 0.8531249999999999 -0.29604166666666665 1.0252083333333333 -0.3645833333333333 1.9366666666666668 -0.8808333333333332 0.09479166666666666 -0.05395833333333333 0.2202083333333333 -0.033541666666666664 0.3179166666666666 0.024791666666666667l3.2899999999999996 1.9527083333333333c0.11958333333333333 0.06562499999999999 0.28729166666666667 0.06562499999999999 0.39666666666666667 0l12.826041666666667 -7.402499999999999c0.11958333333333333 -0.06854166666666667 0.19541666666666666 -0.20562499999999997 0.19541666666666666 -0.3470833333333333V10.093125c0 -0.144375 -0.07729166666666666 -0.27999999999999997 -0.19979166666666667 -0.35291666666666666l-12.820208333333333 -7.3966666666666665c-0.118125 -0.06854166666666667 -0.275625 -0.06854166666666667 -0.39520833333333333 0L4.484375 9.741666666666665c-0.12395833333333334 0.07145833333333333 -0.20270833333333335 0.2114583333333333 -0.20270833333333335 0.3514583333333333v14.802083333333334c0 0.14145833333333332 0.07875 0.275625 0.20270833333333335 0.3427083333333333l3.5131249999999996 2.03c1.9060416666666664 0.95375 3.0741666666666667 -0.16916666666666666 3.0741666666666667 -1.2979166666666666V11.356041666666666c0 -0.2070833333333333 0.16625 -0.36895833333333333 0.3733333333333333 -0.36895833333333333h1.6260416666666666c0.20270833333333335 0 0.371875 0.16333333333333333 0.371875 0.36895833333333333v14.613958333333334c0 2.544791666666667 -1.3854166666666665 4.003125 -3.7975 4.003125 -0.7408333333333333 0 -1.325625 0 -2.954583333333333 -0.8035416666666667L3.3249999999999997 27.234375c-0.8312499999999999 -0.47979166666666667 -1.3445833333333332 -1.3781249999999998 -1.3445833333333332 -2.339166666666667V10.093125c0 -0.9610416666666667 0.5147916666666666 -1.8593749999999998 1.3445833333333332 -2.337708333333333L16.151041666666664 0.3441666666666666c0.8122916666666667 -0.459375 1.89 -0.459375 2.695 0l12.824583333333333 7.411249999999999c0.8312499999999999 0.47979166666666667 1.3475 1.3766666666666665 1.3475 2.337708333333333v14.802083333333334c0 0.9610416666666667 -0.51625 1.856458333333333 -1.3475 2.339166666666667l-12.824583333333333 7.4054166666666665c-0.4083333333333333 0.23770833333333333 -0.8735416666666665 0.3602083333333333 -1.3489583333333333 0.3602083333333333zm10.355625 -14.593541666666665c0 -2.770833333333333 -1.8725 -3.50875 -5.814375 -4.029375 -3.982708333333333 -0.5264583333333333 -4.388125 -0.7991666666666667 -4.388125 -1.7310416666666666 0 -0.77 0.3427083333333333 -1.798125 3.2929166666666667 -1.798125 2.635208333333333 0 3.606458333333333 0.5672916666666666 4.0060416666666665 2.3435416666666664 0.034999999999999996 0.16770833333333332 0.188125 0.29020833333333335 0.3602083333333333 0.29020833333333335h1.6639583333333332c0.10354166666666666 0 0.20125 -0.04520833333333333 0.27125 -0.118125 0.06999999999999999 -0.07875 0.10791666666666666 -0.17937499999999998 0.09770833333333333 -0.28583333333333333 -0.258125 -3.059583333333333 -2.2910416666666666 -4.485833333333333 -6.399166666666666 -4.485833333333333 -3.6574999999999998 0 -5.8391666666666655 1.5429166666666667 -5.8391666666666655 4.131458333333334 0 2.8072916666666665 2.17 3.5831249999999994 5.680208333333333 3.930208333333333 4.199999999999999 0.41124999999999995 4.5252083333333335 1.0252083333333333 4.5252083333333335 1.8506249999999997 0 1.4335416666666665 -1.150625 2.044583333333333 -3.8529166666666663 2.044583333333333 -3.3935416666666662 0 -4.140208333333333 -0.8516666666666666 -4.391041666666666 -2.5404166666666663 -0.029166666666666667 -0.18083333333333332 -0.18375 -0.31354166666666666 -0.36895833333333333 -0.31354166666666666h-1.6581249999999998c-0.20562499999999997 0 -0.37041666666666667 0.16333333333333333 -0.37041666666666667 0.36895833333333333 0 2.16125 1.1754166666666668 4.736666666666666 6.788541666666666 4.736666666666666 4.065833333333333 0.0014583333333333332 6.39625 -1.5983333333333334 6.39625 -4.393958333333333z"
+                                                stroke-width="1"></path>
+                                        </svg>
                                     </div>
-                                    <div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
-                                            style="height: 8px;">
-                                            <div class="progress-bar rounded" id="progress-skill-draw"
-                                                style="width: 50%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                    <div class="d-flex flex-column w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>Node Js</span>
+                                            <span id="njs-persen">??%</span>
+                                        </div>
+                                        <div>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
+                                                style="height: 8px;">
+                                                <div class="progress-bar rounded" id="njs-progress"
+                                                    style="width: 0%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Framework 1 -->
+                                <div class="mx-4 mb-3 d-flex align-items-center gap-2">
+                                    <div class="icon-skills rounded-4 d-flex align-items-center p-2"
+                                        style="aspect-ratio: 1/1;">
+                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="35"
+                                            height="35" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linejoin="round"
+                                                d="m17 13 3.4641-2V7L17 5l-3.4641 2v4M17 13l-3.4641-2M17 13v4l-7.00001 4M17 13V9m0 4-7.00001 4m3.53591-6L10.5 12.7348M9.99999 21l-3.4641-2.1318M9.99999 21v-4m-3.4641 2v-.1318m0 0V15L10.5 12.7348m-3.96411 6.1334L3.5 17V5m0 0L7 3l3.5 2m-7 0 2.99999 2M10.5 5v7.7348M10.5 5 6.49999 7M17 9l3.5-2M17 9l-3.5-2M9.99999 17l-3.5-2m0 .5V7" />
+                                        </svg>
+                                    </div>
+                                    <div class="d-flex flex-column w-100">
+                                        <div class="d-flex justify-content-between">
+                                            <span>Laravel</span>
+                                            <span id="blade-persen">??%</span>
+                                        </div>
+                                        <div>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
+                                                style="height: 8px;">
+                                                <div class="progress-bar rounded" id="blade-progress"
+                                                    style="width: 0%;background: linear-gradient(45deg,#588bdd, #3E5879);">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -454,305 +800,25 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Isi End -->
+                </section>
+                <!-- About Me End -->
 
-                    <!-- Language Programming -->
-                    <div class="row kartu mt-4 d-flex justify-content-evenly rounded-3" style="width: 92vw;">
-                        <div class="col-md-6 p-3">
-                            <h3 class="ps-4 py-3">Language</h3>
-                            <!-- Language HTML -->
-                            <div class="mx-4 mb-3 d-flex align-items-center gap-2">
-                                <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
-                                    style="aspect-ratio: 1/1;">
-                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="35" height="35"
-                                        fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="m3 2 1.578 17.824L12 22l7.467-2.175L21 2H3Zm14.049 6.048H9.075l.172 2.016h7.697l-.626 6.565-4.246 1.381-4.281-1.455-.288-2.932h2.024l.16 1.411 2.4.815 2.346-.763.297-3.005H7.416l-.562-6.05h10.412l-.217 2.017Z" />
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <span>HTML</span>
-                                        <span id="html-persen">75%</span>
-                                    </div>
-                                    <div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
-                                            style="height: 8px;">
-                                            <div class="progress-bar rounded" id="html-progress"
-                                                style="width: 75%;background: linear-gradient(45deg,#588bdd, #3E5879);">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Language CSS -->
-                            <div class="mx-4 mb-3 d-flex align-items-center gap-2">
-                                <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
-                                    style="aspect-ratio: 1/1;">
-                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="35" height="35"
-                                        fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="m3 2 1.578 17.834L12 22l7.468-2.165L21 2H3Zm13.3 14.722-4.293 1.204H12l-4.297-1.204-.297-3.167h2.108l.15 1.526 2.335.639 2.34-.64.245-3.05h-7.27l-.187-2.006h7.64l.174-2.006H6.924l-.176-2.006h10.506l-.954 10.71Z" />
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <span>CSS</span>
-                                        <span id="css-persen">60%</span>
-                                    </div>
-                                    <div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
-                                            style="height: 8px;">
-                                            <div class="progress-bar rounded" id="css-progress"
-                                                style="width: 60%;background: linear-gradient(45deg,#588bdd, #3E5879);">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Language Javascript -->
-                            <div class="mx-4 mb-3 d-flex align-items-center gap-2">
-                                <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
-                                    style="aspect-ratio: 1/1;">
-                                    <svg viewBox="0 0 35 35" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-                                        id="Javascript-Fill--Streamline-Remix-Fill" height="35" width="35">
-                                        <desc>Javascript Fill Streamline Icon: https://streamlinehq.com</desc>
-                                        <path
-                                            d="M8.75 4.375C6.3337604166666654 4.375 4.375 6.3337604166666654 4.375 8.75v17.5c0 2.4163125 1.9587604166666666 4.375 4.375 4.375h17.5c2.4163125 0 4.375 -1.9586875 4.375 -4.375V8.75c0 -2.416239583333333 -1.9586875 -4.375 -4.375 -4.375H8.75Zm10.696 19.038541666666664c1.0481041666666666 0.8448125 2.0960625 1.2618958333333332 3.1441666666666666 1.25125 0.6416666666666666 0 1.1335625 -0.11768749999999999 1.4758333333333333 -0.35291666666666666 0.33147916666666666 -0.22458333333333333 0.4972916666666667 -0.5454166666666667 0.4972916666666667 -0.9625 0 -0.42772916666666666 -0.16581249999999997 -0.7914374999999999 -0.4972916666666667 -1.0908333333333333 -0.3422708333333333 -0.2993958333333333 -0.9891875 -0.5989375 -1.9410416666666666 -0.8983333333333333 -1.1443541666666666 -0.33147916666666666 -2.0266458333333333 -0.7593541666666667 -2.6468749999999996 -1.2833333333333332 -0.6095833333333333 -0.5239791666666667 -0.9197708333333333 -1.2566458333333332 -0.9304166666666667 -2.197708333333333 0 -0.8876875 0.385 -1.6308541666666667 1.155 -2.2297916666666664 0.7485624999999999 -0.5989375 1.7058125 -0.8983333333333333 2.8714583333333334 -0.8983333333333333 1.6256041666666665 0 2.9302291666666664 0.3956458333333333 3.9141666666666666 1.1870833333333333l-1.1229166666666666 1.7485416666666667c-0.3956458333333333 -0.3101875 -0.8502083333333332 -0.5347708333333333 -1.3635416666666667 -0.67375 -0.5133333333333333 -0.16041666666666665 -0.9731458333333333 -0.240625 -1.3795833333333332 -0.240625 -0.5560624999999999 0 -0.9999791666666665 0.10164583333333332 -1.3314583333333334 0.3047916666666666 -0.33147916666666666 0.20314583333333333 -0.4972916666666667 0.4706041666666666 -0.4972916666666667 0.8020833333333334 0 0.36356249999999996 0.20314583333333333 0.67375 0.6095833333333333 0.9304166666666667 0.4064375 0.2460208333333333 1.1014791666666666 0.5187291666666667 2.0854166666666663 0.818125 1.1870833333333333 0.35291666666666666 2.031895833333333 0.8235208333333333 2.5345833333333334 1.4116666666666666s0.7539583333333333 1.3368541666666665 0.7539583333333333 2.245833333333333c0 0.9304166666666667 -0.3583125 1.7325 -1.0747916666666666 2.4062499999999996 -0.7058333333333333 0.6631041666666666 -1.7325 1.0106249999999999 -3.08 1.0427083333333331 -1.7645833333333332 0 -3.2404166666666665 -0.5293749999999999 -4.4275 -1.5881249999999998l1.25125 -1.7325Zm-8.06509375 0.9304166666666667c0.3422270833333333 0.21393749999999997 0.7539583333333333 0.3208333333333333 1.2352083333333332 0.3208333333333333 0.50264375 0 0.9197270833333332 -0.144375 1.25125 -0.433125 0.3315375 -0.2993958333333333 0.4972916666666667 -0.818125 0.4972916666666667 -1.5560416666666665v-7.732083333333333h2.1656979166666663v8.149166666666666c-0.03208333333333333 1.2618958333333332 -0.3957916666666666 2.171020833333333 -1.0908333333333333 2.7270833333333333 -0.3957916666666666 0.33147916666666666 -0.8289166666666666 0.5668541666666667 -1.2994479166666666 0.7058333333333333 -0.47054583333333333 0.13897916666666665 -0.9250645833333332 0.20854166666666663 -1.3635416666666667 0.20854166666666663 -0.8020833333333334 0 -1.5132541666666666 -0.13897916666666665 -2.133541666666667 -0.41708333333333325 -0.6630458333333333 -0.2993958333333333 -1.2191666666666665 -0.8287708333333333 -1.668333333333333 -1.5881249999999998l1.5079166666666666 -1.2352083333333332c0.27806041666666664 0.3743541666666666 0.5775 0.6577083333333333 0.8983333333333333 0.8502083333333332Z"
-                                            stroke-width="1"></path>
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <span>Javascript</span>
-                                        <span id="js-persen">30%</span>
-                                    </div>
-                                    <div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
-                                            style="height: 8px;">
-                                            <div class="progress-bar rounded" id="js-progress"
-                                                style="width: 30%;background: linear-gradient(45deg,#588bdd, #3E5879);">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Language PHP -->
-                            <div class="mx-4 mb-3 d-flex align-items-center gap-2">
-                                <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
-                                    style="aspect-ratio: 1/1;">
-                                    <svg viewBox="0 0 35 35" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                        id="Php--Streamline-Simple-Icons" height="35" width="35">
-                                        <path
-                                            d="M10.222916666666666 14.885208333333333h-1.3766666666666665l-0.7510416666666666 3.861666666666667h1.2220833333333332c0.8108333333333334 0 1.4145833333333333 -0.15312499999999998 1.8112499999999998 -0.45791666666666664 0.39666666666666667 -0.30624999999999997 0.6635416666666667 -0.8152083333333334 0.8020833333333334 -1.5297916666666664 0.13416666666666666 -0.6854166666666666 0.07291666666666667 -1.1695833333333334 -0.18083333333333332 -1.4510416666666666 -0.2552083333333333 -0.2814583333333333 -0.7627083333333333 -0.4229166666666666 -1.5268749999999998 -0.4229166666666666zM17.5 8.295C7.835625 8.295 0 12.416249999999998 0 17.5s7.835625 9.206458333333332 17.5 9.206458333333332S35 22.58375 35 17.5c0 -5.08375 -7.835625 -9.205 -17.5 -9.205zm-4.754166666666666 10.866041666666666c-0.380625 0.3645833333333333 -0.8385416666666665 0.6387499999999999 -1.3372916666666665 0.8035416666666667 -0.49 0.1575 -1.1156249999999999 0.23916666666666667 -1.8739583333333332 0.23916666666666667H7.812291666666667l-0.476875 2.451458333333333H5.325833333333334l1.79375 -9.225416666666666h3.864583333333333c1.1622916666666667 0 2.009583333333333 0.3047916666666666 2.543333333333333 0.9158333333333333 0.53375 0.6095833333333333 0.6941666666666666 1.46125 0.48125 2.5549999999999997a4.135833333333333 4.135833333333333 0 0 1 -0.44479166666666664 1.2352083333333332c-0.20854166666666663 0.371875 -0.48125 0.7145833333333332 -0.818125 1.0252083333333333zm5.868333333333333 1.0427083333333331 0.791875 -4.081874999999999c0.091875 -0.46375 0.056874999999999995 -0.7816666666666666 -0.09916666666666667 -0.949375 -0.15604166666666666 -0.16916666666666666 -0.49 -0.25375 -1.001875 -0.25375H16.712500000000002l-1.0266666666666666 5.286458333333333H13.690833333333332l1.79375 -9.226875h1.9935416666666665l-0.476875 2.4529166666666664h1.7762499999999999c1.1185416666666665 0 1.8885416666666666 0.19541666666666666 2.3129166666666667 0.5847916666666667s0.55125 1.0208333333333333 0.38354166666666667 1.8943749999999997l-0.8341666666666665 4.293333333333333h-2.025625zm11.078958333333333 -3.303125a4.057083333333333 4.057083333333333 0 0 1 -0.44479166666666664 1.2352083333333332c-0.20854166666666663 0.371875 -0.48125 0.7145833333333332 -0.818125 1.0252083333333333a3.558333333333333 3.558333333333333 0 0 1 -1.3372916666666665 0.8035416666666667c-0.49 0.1575 -1.1156249999999999 0.23916666666666667 -1.8754166666666665 0.23916666666666667h-1.7208333333333332l-0.476875 2.4529166666666664h-2.009583333333333l1.79375 -9.225416666666666h3.8631249999999997c1.1622916666666667 0 2.009583333333333 0.3047916666666666 2.543333333333333 0.9158333333333333 0.53375 0.6081249999999999 0.6956249999999999 1.4597916666666664 0.48270833333333335 2.5535416666666664zm-3.7843750000000003 -2.0154166666666664h-1.3752083333333331l-0.7525 3.861666666666667h1.2220833333333332c0.8122916666666667 0 1.4160416666666666 -0.15312499999999998 1.8112499999999998 -0.45791666666666664 0.39666666666666667 -0.30624999999999997 0.6635416666666667 -0.8152083333333334 0.8035416666666667 -1.5297916666666664 0.13416666666666666 -0.6854166666666666 0.07145833333333333 -1.1695833333333334 -0.18229166666666666 -1.4510416666666666s-0.7641666666666667 -0.4229166666666666 -1.5268749999999998 -0.4229166666666666z"
-                                            stroke-width="1"></path>
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <span>PHP native</span>
-                                        <span id="php-persen">20%</span>
-                                    </div>
-                                    <div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
-                                            style="height: 8px;">
-                                            <div class="progress-bar rounded" id="php-progress"
-                                                style="width: 20%;background: linear-gradient(45deg,#588bdd, #3E5879);">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Language Python -->
-                            <div class="mx-4 mb-3 d-flex align-items-center gap-2">
-                                <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
-                                    style="aspect-ratio: 1/1;">
-                                    <svg role="img" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg"
-                                        id="Python--Streamline-Simple-Icons" height="35" width="35" fill="currentColor">
-                                        <path
-                                            d="m26.613750000000003 0.8887499999999999 1.6455000000000002 0.36562500000000003 1.3348125 0.4755 1.0786875 0.5484374999999999 0.8227500000000001 0.5851875 0.6215625 0.6215625 0.457125 0.6215625 0.2925 0.603375 0.18300000000000002 0.548625 0.073125 0.4753125 0.0365625 0.36562500000000003 -0.018375 0.23775v9.7635l-0.09150000000000001 1.1518125 -0.2375625 1.0055625 -0.384 0.841125 -0.4753125 0.6946875 -0.548625 0.5668125 -0.603375 0.457125 -0.6399374999999999 0.3474375 -0.63975 0.25593750000000004 -0.603375 0.18281250000000002 -0.548625 0.1280625 -0.4753125 0.073125 -0.384 0.0365625H16.5943125l-1.2614999999999998 0.0913125 -1.0786875 0.25593750000000004 -0.91425 0.40237500000000004 -0.749625 0.4935 -0.603375 0.5851875 -0.4935 0.6399374999999999 -0.3658125 0.658125 -0.274125 0.6765 -0.18281250000000002 0.6399374999999999 -0.1280625 0.585 -0.073125 0.49368749999999995 -0.0365625 0.384v5.594812500000001H6.3555l-0.3838125 -0.0549375 -0.5120625 -0.127875 -0.585 -0.21937500000000001 -0.6399374999999999 -0.32925 -0.658125 -0.4753125 -0.6583125000000001 -0.658125 -0.6399374999999999 -0.841125 -0.585 -1.0786875 -0.5118750000000001 -1.334625 -0.384 -1.609125 -0.25593750000000004 -1.9196250000000001L0.44999999999999996 22.44525l0.10968750000000001 -2.2306875 0.2925 -1.9014375000000001 0.4389375 -1.59075 0.585 -1.2980625000000001 0.658125 -1.042125 0.7314375 -0.8045625 0.7678125 -0.603375 0.768 -0.43875000000000003 0.7312500000000001 -0.2925 0.6583125000000001 -0.18281250000000002 0.585 -0.09150000000000001 0.4389375 -0.018187500000000002h0.2925l0.10968750000000001 0.018187500000000002h14.919375V10.45125H11.859L11.840625000000001 5.4232499999999995l-0.0365625 -0.6765 0.09150000000000001 -0.62175 0.201 -0.5668125 0.310875 -0.5118750000000001 0.457125 -0.4753125 0.5668125 -0.4205625 0.6946875 -0.36562500000000003 0.8045625 -0.3290625 0.9324375 -0.2743125 1.0605 -0.21937500000000001 1.17 -0.18281250000000002 1.2982500000000001 -0.10968750000000001 1.40775 -0.073125 1.5358125 -0.0365625 2.322 0.0913125ZM15.095062500000001 4.5089999999999995l-0.420375 0.603375 -0.14625 0.749625 0.14625 0.749625 0.420375 0.6215625 0.603375 0.4021875 0.749625 0.164625 0.749625 -0.164625 0.603375 -0.4021875 0.4205625 -0.6215625 0.14625 -0.749625 -0.14625 -0.749625 -0.4205625 -0.603375 -0.603375 -0.40237500000000004 -0.749625 -0.16443750000000001 -0.749625 0.16443750000000001Zm23.93325 7.2219375 0.5120625 0.10968750000000001 0.585 0.21937500000000001 0.6399374999999999 0.32925 0.658125 0.4935 0.6583125000000001 0.6399374999999999 0.6399374999999999 0.8593124999999999 0.585 1.078875 0.5118750000000001 1.334625 0.384 1.6089375 0.25593750000000004 1.9014375000000001 0.09150000000000001 2.248875 -0.10968750000000001 2.248875 -0.2925 1.901625 -0.4389375 1.572375 -0.585 1.2980625000000001 -0.6583125000000001 1.042125 -0.7312500000000001 0.8227500000000001 -0.768 0.603375 -0.7678125 0.4389375 -0.7314375 0.2925 -0.658125 0.16443750000000001 -0.585 0.09150000000000001 -0.4389375 0.0365625 -0.2925 -0.018187500000000002h-15.029062499999998v1.49925h10.6775625l0.018375 5.0461875 0.0365625 0.658125 -0.09150000000000001 0.62175 -0.201 0.5668125 -0.310875 0.53025 -0.457125 0.4569375 -0.5668125 0.4389375 -0.6946875 0.36562500000000003 -0.8045625 0.310875 -0.9324375 0.274125 -1.0605 0.23775 -1.17 0.164625 -1.2982500000000001 0.127875 -1.40775 0.073125 -1.5358125 0.018375 -2.322 -0.073125 -1.9563750000000002 -0.256125 -1.6455000000000002 -0.36562500000000003 -1.3348125 -0.457125 -1.0786875 -0.5484374999999999 -0.8227500000000001 -0.603375 -0.6215625 -0.6215625 -0.457125 -0.62175 -0.2925 -0.603375 -0.18300000000000002 -0.5484374999999999 -0.073125 -0.457125 -0.0365625 -0.36562500000000003 0.018375 -0.23775v-9.7633125l0.09150000000000001 -1.1701875 0.2375625 -0.9873749999999999 0.384 -0.8409375 0.4753125 -0.694875 0.548625 -0.585 0.603375 -0.4389375 0.6399374999999999 -0.36562500000000003 0.63975 -0.25593750000000004 0.603375 -0.18281250000000002 0.548625 -0.10968750000000001 0.4753125 -0.073125 0.384 -0.0365625 0.23775 -0.018375h10.6775625l1.2614999999999998 -0.0913125 1.0786875 -0.25593750000000004 0.91425 -0.384 0.749625 -0.5120625 0.603375 -0.585 0.49368749999999995 -0.6399374999999999 0.36562500000000003 -0.658125 0.2743125 -0.6583125000000001 0.18281250000000002 -0.6399374999999999 0.127875 -0.585 0.073125 -0.5118750000000001 0.0365625 -0.384V11.6578125h3.8212499999999996l0.256125 0.018375Zm-11.829375 26.0540625 -0.4205625 0.603375 -0.14625 0.749625 0.14625 0.749625 0.4205625 0.603375 0.603375 0.4205625 0.749625 0.14625 0.749625 -0.14625 0.603375 -0.4205625 0.420375 -0.603375 0.14625 -0.749625 -0.14625 -0.749625 -0.420375 -0.603375 -0.603375 -0.420375 -0.749625 -0.1464375 -0.749625 0.1464375Z"
-                                            stroke-width="1"></path>
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <span>Python</span>
-                                        <span id="py-persen">25%</span>
-                                    </div>
-                                    <div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
-                                            style="height: 8px;">
-                                            <div class="progress-bar rounded" id="py-progress"
-                                                style="width: 25%;background: linear-gradient(45deg,#588bdd, #3E5879);">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 p-3 rounded-3">
-                            <h3 class="ps-4 py-3">Framework</h3>
-                            <!-- Framework bootstrap -->
-                            <div class="mx-4 mb-3 d-flex align-items-center gap-2">
-                                <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
-                                    style="aspect-ratio: 1/1;">
-                                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                        id="Bootstrap--Streamline-Simple-Icons" height="35" width="35"
-                                        fill="currentColor">
-                                        <path
-                                            d="M11.77 11.24H9.956V8.202h2.152c1.17 0 1.834 0.522 1.834 1.466 0 1.008 -0.773 1.572 -2.174 1.572zm0.324 1.206H9.957v3.348h2.231c1.459 0 2.232 -0.585 2.232 -1.685s-0.795 -1.663 -2.326 -1.663zM24 11.39v1.218c-1.128 0.108 -1.817 0.944 -2.226 2.268 -0.407 1.319 -0.463 2.937 -0.42 4.186 0.045 1.3 -0.968 2.5 -2.337 2.5H4.985c-1.37 0 -2.383 -1.2 -2.337 -2.5 0.043 -1.249 -0.013 -2.867 -0.42 -4.186 -0.41 -1.324 -1.1 -2.16 -2.228 -2.268V11.39c1.128 -0.108 1.819 -0.944 2.227 -2.268 0.408 -1.319 0.464 -2.937 0.42 -4.186 -0.045 -1.3 0.968 -2.5 2.338 -2.5h14.032c1.37 0 2.382 1.2 2.337 2.5 -0.043 1.249 0.013 2.867 0.42 4.186 0.409 1.324 1.098 2.16 2.226 2.268zm-7.927 2.817c0 -1.354 -0.953 -2.333 -2.368 -2.488v-0.057c1.04 -0.169 1.856 -1.135 1.856 -2.213 0 -1.537 -1.213 -2.538 -3.062 -2.538h-4.16v10.172h4.181c2.218 0 3.553 -1.086 3.553 -2.876z"
-                                            stroke-width="1"></path>
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <span>Bootstrap</span>
-                                        <span id="bp-persen">60%</span>
-                                    </div>
-                                    <div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
-                                            style="height: 8px;">
-                                            <div class="progress-bar rounded" id="bp-progress"
-                                                style="width: 60%;background: linear-gradient(45deg,#588bdd, #3E5879);">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Framework tailwind -->
-                            <div class="mx-4 mb-3 d-flex align-items-center gap-2">
-                                <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
-                                    style="aspect-ratio: 1/1;">
-                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="35" height="35"
-                                        fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M11.782 5.72a4.773 4.773 0 0 0-4.8 4.173 3.43 3.43 0 0 1 2.741-1.687c1.689 0 2.974 1.972 3.758 2.587a5.733 5.733 0 0 0 5.382.935c2-.638 2.934-2.865 3.137-3.921-.969 1.379-2.44 2.207-4.259 1.231-1.253-.673-2.19-3.438-5.959-3.318ZM6.8 11.979A4.772 4.772 0 0 0 2 16.151a3.431 3.431 0 0 1 2.745-1.687c1.689 0 2.974 1.972 3.758 2.587a5.733 5.733 0 0 0 5.382.935c2-.638 2.933-2.865 3.137-3.921-.97 1.379-2.44 2.208-4.259 1.231-1.253-.673-2.19-3.443-5.963-3.317Z" />
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <span>TailwindCss</span>
-                                        <span id="twc-persen">10%</span>
-                                    </div>
-                                    <div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
-                                            style="height: 8px;">
-                                            <div class="progress-bar rounded" id="twc-progress"
-                                                style="width: 10%;background: linear-gradient(45deg,#588bdd, #3E5879);">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Framework react -->
-                            <div class="mx-4 mb-3 d-flex align-items-center gap-2">
-                                <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
-                                    style="aspect-ratio: 1/1;">
-                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="35" height="35"
-                                        fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M21.718 12c0-1.429-1.339-2.681-3.467-3.5.029-.18.077-.37.1-.545.217-2.058-.273-3.543-1.379-4.182-1.235-.714-2.983-.186-4.751 1.239C10.45 3.589 8.7 3.061 7.468 3.773c-1.107.639-1.6 2.124-1.379 4.182.018.175.067.365.095.545-2.127.819-3.466 2.071-3.466 3.5 0 1.429 1.339 2.681 3.466 3.5-.028.18-.077.37-.095.545-.218 2.058.272 3.543 1.379 4.182.376.213.803.322 1.235.316a5.987 5.987 0 0 0 3.514-1.56 5.992 5.992 0 0 0 3.515 1.56 2.44 2.44 0 0 0 1.236-.316c1.106-.639 1.6-2.124 1.379-4.182-.019-.175-.067-.365-.1-.545 2.132-.819 3.471-2.071 3.471-3.5Zm-6.01-7.548a1.5 1.5 0 0 1 .76.187c.733.424 1.055 1.593.884 3.212-.012.106-.043.222-.058.33-.841-.243-1.7-.418-2.57-.523a16.165 16.165 0 0 0-1.747-1.972 4.9 4.9 0 0 1 2.731-1.234Zm-7.917 8.781c.172.34.335.68.529 1.017.194.337.395.656.6.969a14.09 14.09 0 0 1-1.607-.376 14.38 14.38 0 0 1 .478-1.61Zm-.479-4.076a14.085 14.085 0 0 1 1.607-.376c-.205.313-.405.634-.6.969-.195.335-.357.677-.529 1.017-.19-.527-.35-1.064-.478-1.61ZM8.3 12a19.32 19.32 0 0 1 .888-1.75c.33-.568.69-1.118 1.076-1.65.619-.061 1.27-.1 1.954-.1.684 0 1.333.035 1.952.1a19.63 19.63 0 0 1 1.079 1.654c.325.567.621 1.15.887 1.746a18.869 18.869 0 0 1-1.953 3.403 19.218 19.218 0 0 1-3.931 0 20.169 20.169 0 0 1-1.066-1.653A19.324 19.324 0 0 1 8.3 12Zm7.816 2.25c.2-.337.358-.677.53-1.017.191.527.35 1.065.478 1.611a14.48 14.48 0 0 1-1.607.376c.202-.314.404-.635.597-.97h.002Zm.53-3.483c-.172-.34-.335-.68-.53-1.017a20.214 20.214 0 0 0-.6-.97c.542.095 1.078.22 1.606.376a14.111 14.111 0 0 1-.478 1.611h.002ZM12.217 6.34c.4.375.777.773 1.13 1.193-.37-.02-.746-.033-1.129-.033s-.76.013-1.131.033c.353-.42.73-.817 1.13-1.193Zm-4.249-1.7a1.5 1.5 0 0 1 .76-.187 4.9 4.9 0 0 1 2.729 1.233A16.253 16.253 0 0 0 9.71 7.658c-.87.105-1.728.28-2.569.524-.015-.109-.047-.225-.058-.331-.171-1.619.151-2.787.885-3.211ZM3.718 12c0-.9.974-1.83 2.645-2.506.218.857.504 1.695.856 2.506-.352.811-.638 1.65-.856 2.506C4.692 13.83 3.718 12.9 3.718 12Zm4.25 7.361c-.734-.423-1.056-1.593-.885-3.212.011-.106.043-.222.058-.331.84.243 1.697.418 2.564.524a16.37 16.37 0 0 0 1.757 1.982c-1.421 1.109-2.714 1.488-3.494 1.037Zm3.11-2.895c.374.021.753.034 1.14.034.387 0 .765-.013 1.139-.034a14.4 14.4 0 0 1-1.14 1.215 14.248 14.248 0 0 1-1.139-1.215Zm5.39 2.895c-.782.451-2.075.072-3.5-1.038a16.248 16.248 0 0 0 1.757-1.981 16.41 16.41 0 0 0 2.565-.523c.015.108.046.224.058.33.175 1.619-.148 2.789-.88 3.212Zm1.6-4.854A16.563 16.563 0 0 0 17.216 12c.352-.812.638-1.65.856-2.507 1.671.677 2.646 1.607 2.646 2.507 0 .9-.975 1.83-2.646 2.507h-.004Z" />
-                                        <path
-                                            d="M12.215 13.773a1.792 1.792 0 1 0-1.786-1.8v.006a1.787 1.787 0 0 0 1.786 1.794Z" />
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <span>React JS</span>
-                                        <span id="jsx-persen">??%</span>
-                                    </div>
-                                    <div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
-                                            style="height: 8px;">
-                                            <div class="progress-bar rounded" id="jsx-progress"
-                                                style="width: 100%;background: linear-gradient(45deg,#588bdd, #3E5879);">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Framework 1 -->
-                            <div class="mx-4 mb-3 d-flex align-items-center gap-2">
-                                <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
-                                    style="aspect-ratio: 1/1;">
-                                    <svg role="img" viewBox="0 0 35 35" xmlns="http://www.w3.org/2000/svg"
-                                        id="Nodedotjs--Streamline-Simple-Icons" height="35" width="35"
-                                        fill="currentColor">
-                                        <path
-                                            d="M17.497083333333332 35c-0.468125 0 -0.9347916666666667 -0.1225 -1.3445833333333332 -0.3602083333333333L11.870833333333334 32.10666666666666c-0.6387499999999999 -0.3572916666666666 -0.32666666666666666 -0.4841666666666667 -0.11666666666666667 -0.5585416666666666 0.8531249999999999 -0.29604166666666665 1.0252083333333333 -0.3645833333333333 1.9366666666666668 -0.8808333333333332 0.09479166666666666 -0.05395833333333333 0.2202083333333333 -0.033541666666666664 0.3179166666666666 0.024791666666666667l3.2899999999999996 1.9527083333333333c0.11958333333333333 0.06562499999999999 0.28729166666666667 0.06562499999999999 0.39666666666666667 0l12.826041666666667 -7.402499999999999c0.11958333333333333 -0.06854166666666667 0.19541666666666666 -0.20562499999999997 0.19541666666666666 -0.3470833333333333V10.093125c0 -0.144375 -0.07729166666666666 -0.27999999999999997 -0.19979166666666667 -0.35291666666666666l-12.820208333333333 -7.3966666666666665c-0.118125 -0.06854166666666667 -0.275625 -0.06854166666666667 -0.39520833333333333 0L4.484375 9.741666666666665c-0.12395833333333334 0.07145833333333333 -0.20270833333333335 0.2114583333333333 -0.20270833333333335 0.3514583333333333v14.802083333333334c0 0.14145833333333332 0.07875 0.275625 0.20270833333333335 0.3427083333333333l3.5131249999999996 2.03c1.9060416666666664 0.95375 3.0741666666666667 -0.16916666666666666 3.0741666666666667 -1.2979166666666666V11.356041666666666c0 -0.2070833333333333 0.16625 -0.36895833333333333 0.3733333333333333 -0.36895833333333333h1.6260416666666666c0.20270833333333335 0 0.371875 0.16333333333333333 0.371875 0.36895833333333333v14.613958333333334c0 2.544791666666667 -1.3854166666666665 4.003125 -3.7975 4.003125 -0.7408333333333333 0 -1.325625 0 -2.954583333333333 -0.8035416666666667L3.3249999999999997 27.234375c-0.8312499999999999 -0.47979166666666667 -1.3445833333333332 -1.3781249999999998 -1.3445833333333332 -2.339166666666667V10.093125c0 -0.9610416666666667 0.5147916666666666 -1.8593749999999998 1.3445833333333332 -2.337708333333333L16.151041666666664 0.3441666666666666c0.8122916666666667 -0.459375 1.89 -0.459375 2.695 0l12.824583333333333 7.411249999999999c0.8312499999999999 0.47979166666666667 1.3475 1.3766666666666665 1.3475 2.337708333333333v14.802083333333334c0 0.9610416666666667 -0.51625 1.856458333333333 -1.3475 2.339166666666667l-12.824583333333333 7.4054166666666665c-0.4083333333333333 0.23770833333333333 -0.8735416666666665 0.3602083333333333 -1.3489583333333333 0.3602083333333333zm10.355625 -14.593541666666665c0 -2.770833333333333 -1.8725 -3.50875 -5.814375 -4.029375 -3.982708333333333 -0.5264583333333333 -4.388125 -0.7991666666666667 -4.388125 -1.7310416666666666 0 -0.77 0.3427083333333333 -1.798125 3.2929166666666667 -1.798125 2.635208333333333 0 3.606458333333333 0.5672916666666666 4.0060416666666665 2.3435416666666664 0.034999999999999996 0.16770833333333332 0.188125 0.29020833333333335 0.3602083333333333 0.29020833333333335h1.6639583333333332c0.10354166666666666 0 0.20125 -0.04520833333333333 0.27125 -0.118125 0.06999999999999999 -0.07875 0.10791666666666666 -0.17937499999999998 0.09770833333333333 -0.28583333333333333 -0.258125 -3.059583333333333 -2.2910416666666666 -4.485833333333333 -6.399166666666666 -4.485833333333333 -3.6574999999999998 0 -5.8391666666666655 1.5429166666666667 -5.8391666666666655 4.131458333333334 0 2.8072916666666665 2.17 3.5831249999999994 5.680208333333333 3.930208333333333 4.199999999999999 0.41124999999999995 4.5252083333333335 1.0252083333333333 4.5252083333333335 1.8506249999999997 0 1.4335416666666665 -1.150625 2.044583333333333 -3.8529166666666663 2.044583333333333 -3.3935416666666662 0 -4.140208333333333 -0.8516666666666666 -4.391041666666666 -2.5404166666666663 -0.029166666666666667 -0.18083333333333332 -0.18375 -0.31354166666666666 -0.36895833333333333 -0.31354166666666666h-1.6581249999999998c-0.20562499999999997 0 -0.37041666666666667 0.16333333333333333 -0.37041666666666667 0.36895833333333333 0 2.16125 1.1754166666666668 4.736666666666666 6.788541666666666 4.736666666666666 4.065833333333333 0.0014583333333333332 6.39625 -1.5983333333333334 6.39625 -4.393958333333333z"
-                                            stroke-width="1"></path>
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <span>Node Js</span>
-                                        <span id="njs-persen">??%</span>
-                                    </div>
-                                    <div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
-                                            style="height: 8px;">
-                                            <div class="progress-bar rounded" id="njs-progress"
-                                                style="width: 100%;background: linear-gradient(45deg,#588bdd, #3E5879);">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Framework 1 -->
-                            <div class="mx-4 mb-3 d-flex align-items-center gap-2">
-                                <div class="icon-skills rounded-4 d-flex align-items-center p-2"
-                                    style="aspect-ratio: 1/1;">
-                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="35" height="35"
-                                        fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linejoin="round"
-                                            d="m17 13 3.4641-2V7L17 5l-3.4641 2v4M17 13l-3.4641-2M17 13v4l-7.00001 4M17 13V9m0 4-7.00001 4m3.53591-6L10.5 12.7348M9.99999 21l-3.4641-2.1318M9.99999 21v-4m-3.4641 2v-.1318m0 0V15L10.5 12.7348m-3.96411 6.1334L3.5 17V5m0 0L7 3l3.5 2m-7 0 2.99999 2M10.5 5v7.7348M10.5 5 6.49999 7M17 9l3.5-2M17 9l-3.5-2M9.99999 17l-3.5-2m0 .5V7" />
-                                    </svg>
-                                </div>
-                                <div class="d-flex flex-column w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <span>Laravel</span>
-                                        <span id="blade-persen">??%</span>
-                                    </div>
-                                    <div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"
-                                            style="height: 8px;">
-                                            <div class="progress-bar rounded" id="blade-progress"
-                                                style="width: 100%;background: linear-gradient(45deg,#588bdd, #3E5879);">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Project -->
+                <section id="project" style="height: fit-content;padding-top: 70px;padding-bottom: 70px;">
+                    <!-- Judul -->
+                    <div class="d-flex flex-column align-items-center text-light mb-5" data-aos="flip-down">
+                        <h1 class="judul">My Project</h1>
+                        <span class="d-flex gap-2" style="font-size: large;">My Recent Work</span>
                     </div>
-                </div>
-                <!-- Isi End -->
-            </div>
-            <!-- About Me End -->
+                    <!-- Judul End -->
 
-            <!-- Project -->
-            <div id="project" style="height: fit-content;padding-top: 70px;padding-bottom: 70px;">
-                <!-- Judul -->
-                <div class="d-flex flex-column align-items-center text-light mb-5">
-                    <h1 class="judul">My Project</h1>
-                    <span class="d-flex gap-2" style="font-size: large;">My Recent Work</span>
-                </div>
-                <!-- Judul End -->
-
-                <!-- Isi End -->
+                    <!-- Isi End -->
                     <div class="d-flex flex-wrap justify-content-center gap-3">
-                        <div class="kartu-projek d-flex flex-column shadow p-3" style="width: 22rem;height: 27rem;">
+                        <div class="kartu-projek d-flex flex-column shadow p-3" style="width: 22rem;height: 27rem;" data-aos="fade-right">
                             <div class="mb-2 d-flex justify-content-center">
-                                <img src="/asset/gif/projek1.gif" class="rounded shadow" style="width: 20rem;height: 10rem;">
+                                <img src="/asset/gif/projek1.gif" class="rounded shadow"
+                                    style="width: 20rem;height: 10rem;" loading="lazy">
                             </div>
                             <div class="p-2 d-flex flex-column justify-content-between h-100">
                                 <h3>Portofolio</h3>
@@ -762,12 +828,13 @@
                                     perjalanan belajar.<br><br>
                                 </span>
                                 <span class="fw-semibold" style="font-size: 20px; color: #7eafff;">
-                                    HTML CSS Javascript 
+                                    HTML CSS Javascript
                                 </span>
                             </div>
                         </div>
-                        <div class="kartu-projek d-flex flex-column shadow p-3" style="width: 22rem;height: 27rem;">
-                            <div class="border rounded shadow mb-2 d-flex justify-content-center align-items-center" style="width: 20rem;height: 100%; max-height: 10rem;">
+                        <div class="kartu-projek d-flex flex-column shadow p-3" style="width: 22rem;height: 27rem;" data-aos="zoom-in-up">
+                            <div class="border rounded shadow mb-2 d-flex justify-content-center align-items-center"
+                                style="width: 20rem;height: 100%; max-height: 10rem;">
                                 <span class="fs-2">??</span>
                             </div>
                             <div class="p-2 d-flex flex-column justify-content-between h-100">
@@ -776,8 +843,9 @@
                                 <span class="fw-semibold" style="font-size: 20px; color: #7eafff;">??</span>
                             </div>
                         </div>
-                        <div class="kartu-projek d-flex flex-column shadow p-3" style="width: 22rem;height: 27rem;">
-                            <div class="border rounded shadow mb-2 d-flex justify-content-center align-items-center" style="width: 20rem;height: 100%; max-height: 10rem;">
+                        <div class="kartu-projek d-flex flex-column shadow p-3" style="width: 22rem;height: 27rem;" data-aos="fade-left">
+                            <div class="border rounded shadow mb-2 d-flex justify-content-center align-items-center"
+                                style="width: 20rem;height: 100%; max-height: 10rem;">
                                 <span class="fs-2">??</span>
                             </div>
                             <div class="p-2 d-flex flex-column justify-content-between h-100">
@@ -786,134 +854,154 @@
                                 <span class="fw-semibold" style="font-size: 20px; color: #7eafff;">??</span>
                             </div>
                         </div>
-                        
-                    </div>
-                <!-- Isi -->
-            </div>
-            <!-- Project End -->
 
-            <!-- Achievement -->
-            <div id="achievement" style="height: fit-content;padding-top: 70px;padding-bottom: 70px;">
-                <!-- Judul -->
-                <div class="d-flex flex-column align-items-center text-light mb-5">
-                    <h1 class="judul">Achievement</h1>
-                    <span class="d-flex gap-2" style="font-size: large;">Certificates</span>
-                </div>
-                <!-- Judul End -->
-
-                <!-- Isi End -->
-                <div class="d-flex flex-wrap justify-content-center gap-3">
-                    <div class="card1 kartu p-4 rounded">
-                        <button type="button" data-bs-toggle="modal" class="btn" data-bs-target="#exampleModal">
-                            <img src="/asset/images/Sertifikat Prakerja_page-0001.jpg" class="sertif" alt="Sertifikat Prakerja" style="width: 20rem;">
-                        </button>
                     </div>
-                    <!-- Modal -->
-                    <div class="text-light modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-theme="dark">
-                        <div class="modal-dialog modal-dialog-centered ">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h1 class="modal-title fs-5" id="exampleModalLabel">Sertifikat karrier.mu (Prakerja)</h1>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
-                            </div>
-                            <div class="modal-body d-flex justify-content-center">
-                                <img src="/asset/images/Sertifikat Prakerja_page-0001.jpg" alt="" style="width: 45rem;">
-                            </div>
-                          </div>
+                    <!-- Isi -->
+                </section>
+                <!-- Project End -->
+
+                <!-- Achievement -->
+                <section id="achievement" style="height: fit-content;padding-top: 70px;padding-bottom: 70px;">
+                    <!-- Judul -->
+                    <div class="d-flex flex-column align-items-center text-light mb-5" data-aos="flip-down">
+                        <h1 class="judul">Achievement</h1>
+                        <span class="d-flex gap-2" style="font-size: large;">Certificates</span>
+                    </div>
+                    <!-- Judul End -->
+
+                    <!-- Isi End -->
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <div class="card1 kartu p-2 rounded sertif-mobile">
+                            <button type="button" data-bs-toggle="modal" class="btn" data-bs-target="#exampleModal">
+                                <img src="/asset/images/Sertifikat Prakerja_page-0001.jpg" class="sertif"
+                                    alt="Sertifikat Prakerja" loading="lazy">
+                            </button>
                         </div>
-                      </div>
-                    <div class="card1 kartu p-4 rounded d-flex flex-column justify-content-center">
-                        <button type="button" data-bs-toggle="modal" class="btn" data-bs-target="#exampleModal2">
-                            <img src="/asset/images/Sertifikat Skillhub_page-0001.jpg" class="sertif" alt="Sertifikat Skillhub" style="width: 20rem;">
-                        </button>
-                    </div>
-                    <!-- Modal 2 -->
-                    <div class="text-light modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-theme="dark">
-                        <div class="modal-dialog modal-dialog-centered ">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h1 class="modal-title fs-5" id="exampleModalLabel">Sertifikat Skillhub</h1>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
-                            </div>
-                            <div class="modal-body d-flex justify-content-center">
-                                <img src="/asset/images/Sertifikat Skillhub_page-0001.jpg" alt="" style="width: 45rem;">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    <div class="card1 kartu p-4 rounded">
-                        <div class="d-flex flex-column justify-content-center align-items-center h-100" style="width: 20rem;">
-                            <span class="fs-2">??</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Isi -->
-            </div>
-            <!-- Achievement End -->
-
-            <!--Contact -->
-            <div id="contact" style="height: fit-content;padding-top: 100px;padding-bottom: 70px;">
-                <!-- Judul -->
-                <div class="d-flex flex-column align-items-center text-light mb-5">
-                    <h1 class="judul">Contact Me</h1>
-                    <span class="d-flex gap-2" style="font-size: large;">Connect and work together!</span>
-                </div>
-                <!-- Judul End -->
-
-                <!-- Isi End -->
-                <div class="d-flex justify-content-center">
-                    <div class="kartu rounded border p-4" style="width: 100%;max-width: 60vw;">
-                        <form id="formMessage" class="needs-validation" data-bs-theme="dark" novalidate>
-                            <div class="mb-3" style="width: 50%;">
-                              <label for="in-name" class="form-label">Name :</label>
-                              <div class="input-group has-validation">
-                                <span class="input-group-text" id="inputGroupPrepend">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                                      </svg>
-                                </span>
-                                <input type="text" class="form-control" id="in-name" aria-describedby="inputGroupPrepend" placeholder="Masukan Nama Anda" required>
-                                <div class="invalid-feedback">
-                                  Masukan nama!
+                        <!-- Modal -->
+                        <div class="text-light modal fade" id="exampleModal" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-theme="dark">
+                            <div class="modal-dialog modal-dialog-centered ">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Sertifikat karrier.mu
+                                            (Prakerja)
+                                        </h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="close"></button>
+                                    </div>
+                                    <div class="modal-body d-flex justify-content-center">
+                                        <img src="/asset/images/Sertifikat Prakerja_page-0001.jpg" alt="" style="width: 20rem;" loading="lazy">
+                                    </div>
                                 </div>
-                              </div>
                             </div>
-                            <div class="mb-3" style="width: 50%;">
-                              <label for="in-email" class="form-label">Email:</label>
-                              <div class="input-group has-validation">
-                                <span class="input-group-text" id="inputGroupPrepend">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-at" viewBox="0 0 16 16">
-                                    <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2zm3.708 6.208L1 11.105V5.383zM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2z"/>
-                                    <path d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648m-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z"/>
-                                  </svg>
-                                </span>
-                                <input type="email" class="form-control" id="in-email" aria-describedby="inputGroupPrepend" placeholder="Masukan Email Anda" required>
-                                <div class="invalid-feedback">
-                                  Masukan email!
+                        </div>
+                        <div class="card1 kartu p-2 rounded sertif-mobile d-flex flex-column justify-content-center">
+                            <button type="button" data-bs-toggle="modal" class="btn" data-bs-target="#exampleModal2">
+                                <img src="/asset/images/Sertifikat Skillhub_page-0001.jpg" class="sertif"
+                                    alt="Sertifikat Skillhub" loading="lazy">
+                            </button>
+                        </div>
+                        <!-- Modal 2 -->
+                        <div class="text-light modal fade" id="exampleModal2" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-theme="dark">
+                            <div class="modal-dialog modal-dialog-centered ">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Sertifikat Skillhub</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="close"></button>
+                                    </div>
+                                    <div class="modal-body d-flex justify-content-center">
+                                        <img src="/asset/images/Sertifikat Skillhub_page-0001.jpg" alt="" style="width: 20rem;" loading="lazy">
+                                    </div>
                                 </div>
-                              </div>
                             </div>
-                            <div class="mb-3">
-                              <label for="in-messages" class="form-label">Pesan : </label>
-                              <textarea class="form-control" id="in-messages" placeholder="Masukan Pesan" cols="20" rows="5" required></textarea>
-                              <div class="invalid-feedback">
-                                Pesan tidak boleh kosong!    
-                              </div>
+                        </div>
+                        <div class="card1 kartu p-4 rounded sertif-mobile">
+                            <div class="sertif-mobile d-flex flex-column justify-content-center align-items-center h-100">
+                                <span class="fs-2 sertif">??</span>
                             </div>
-                            <div class="d-flex">
-                              <button class="btn btn-outline-light button-navbar" type="submit">Kirim Pesan</button>
-                              <button id="loading" class="ms-3 btn btn-light d-none" type="button" disabled>
-                                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                                <span role="status">Loading...</span>
-                              </button>
-                            </div>
-                        </form>                    
+                        </div>
                     </div>
-                </div>
-                <!-- Isi -->
+                    <!-- Isi -->
+                </section>
+                <!-- Achievement End -->
+
+                <!--Contact -->
+                <section id="contact" style="height: fit-content;padding-top: 70px;padding-bottom: 70px;">
+                    <!-- Judul -->
+                    <div class="d-flex flex-column align-items-center text-light mb-5" data-aos="fade-down">
+                        <h1 class="judul">Contact Me</h1>
+                        <span class="d-flex gap-2" style="font-size: large;">Connect and work together!</span>
+                    </div>
+                    <!-- Judul End -->
+
+                    <!-- Isi End -->
+                    <div class="d-flex justify-content-center">
+                        <div class="kartu rounded border p-4" style="width: 100%;max-width: 80vw;" data-aos="flip-up">
+                            <form id="formMessage" class="needs-validation" data-bs-theme="dark" novalidate>
+                                <div class="mb-3">
+                                    <label for="in-name" class="form-label">Name :</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text" id="inputGroupPrepend">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                                <path fill-rule="evenodd"
+                                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                                            </svg>
+                                        </span>
+                                        <input type="text" class="form-control" id="in-name"
+                                            aria-describedby="inputGroupPrepend" placeholder="Masukan Nama Anda"
+                                            required>
+                                        <div class="invalid-feedback">
+                                            Masukan nama!
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="in-email" class="form-label">Email:</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text" id="inputGroupPrepend">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-envelope-at" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2zm3.708 6.208L1 11.105V5.383zM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2z" />
+                                                <path
+                                                    d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648m-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z" />
+                                            </svg>
+                                        </span>
+                                        <input type="email" class="form-control" id="in-email"
+                                            aria-describedby="inputGroupPrepend" placeholder="Masukan Email Anda"
+                                            required>
+                                        <div class="invalid-feedback">
+                                            Masukan email!
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="in-messages" class="form-label">Pesan : </label>
+                                    <textarea class="form-control" id="in-messages" placeholder="Masukan Pesan"
+                                        cols="20" rows="5" required></textarea>
+                                    <div class="invalid-feedback">
+                                        Pesan tidak boleh kosong!
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <button class="btn btn-outline-light button-navbar" type="submit">Kirim
+                                        Pesan</button>
+                                    <button id="loading" class="ms-3 btn btn-light d-none" type="button" disabled>
+                                        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                                        <span role="status">Loading...</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Isi -->
+                </section>
+                <!-- Contact End -->
             </div>
-            <!-- Contact End -->
         </div>
         <!-- Content End -->
 
@@ -921,40 +1009,41 @@
         <footer id="footer" class="p-4" style="background-color: rgb(15, 17, 26);">
             <div class="">
                 <div class="">
-                    <div class="fs-3 text-light d-flex justify-content-between" style="font-family: 'Lily Script One';cursor: default;">
+                    <div class="fs-3 text-light d-flex justify-content-between"
+                        style="font-family: 'Lily Script One';cursor: default;">
                         <span class="text-navbar">Deyand</span>
                         <div class="d-flex gap-3" style="width: fit-content;">
                             <a class="text-decoration-none github" href="https://github.com/Deyand03">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
-                                    fill="white" class="bi bi-github icon-github" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" fill="white"
+                                    class="bi bi-github icon-github" viewBox="0 0 16 16">
                                     <path
                                         d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
                                 </svg>
                             </a>
                             <a class="text-decoration-none instagram" href="https://www.instagram.com/deyand.__">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
-                                    fill="white" class="bi bi-instagram icon-instagram" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" fill="white"
+                                    class="bi bi-instagram icon-instagram" viewBox="0 0 16 16">
                                     <path
                                         d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
                                 </svg>
                             </a>
                             <a class="text-decoration-none youtube" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
-                                    fill="white" class="bi bi-youtube icon-youtube" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" fill="white"
+                                    class="bi bi-youtube icon-youtube" viewBox="0 0 16 16">
                                     <path
                                         d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
                                 </svg>
                             </a>
                             <a class="text-decoration-none linkedin" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
-                                    fill="white" class="bi bi-linkedin icon-linkedin" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" fill="white"
+                                    class="bi bi-linkedin icon-linkedin" viewBox="0 0 16 16">
                                     <path
                                         d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
                                 </svg>
                             </a>
                             <a class="text-decoration-none whatsapp" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px"
-                                    fill="white" class="bi bi-whatsapp icon-whatsapp" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" fill="white"
+                                    class="bi bi-whatsapp icon-whatsapp" viewBox="0 0 16 16">
                                     <path
                                         d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
                                 </svg>
@@ -962,21 +1051,25 @@
                         </div>
                     </div>
                 </div>
-                <hr style="border: 1px solid gray;"/>
+                <hr style="border: 1px solid gray;" />
                 <div class="mt-4">
                     <span class="d-block text-light text-center">© 2025 Portofolio Deyand. All Rights Reserved.</span>
                 </div>
             </div>
-</footer>
+        </footer>
         <!-- Footer End -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="javascript/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+    <script>
+        AOS.init({ once: true });
+    </script>
 </body>
 
 </html>

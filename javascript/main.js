@@ -21,6 +21,8 @@ const phpPersen = $('#php-persen');
 const phpProgress = $('#php-progress');
 const pyPersen = $('#py-persen');
 const pyProgress = $('#py-progress');
+const gdPersen = $('#gdscript-persen');
+const gdprogress = $('#gd-progress');
 const bpPersen = $('#bp-persen');
 const bpProgress = $('#bp-progress');
 const twcPersen = $('#twc-persen');
@@ -31,10 +33,13 @@ const njsPersen = $('#njs-persen');
 const njsProgress = $('#njs-progress');
 const bladePersen = $('#blade-persen');
 const bladeProgress = $('#blade-progress');
+const gamedevProgress = $('#persen-gamedev');
+const gamedevPersen = $('#progress-skill-game');
 const nama = $('#in-name');
 const email = $('#in-email');
 const messages = $('#in-messages');
 const menu = $('#menuNavbar');
+
 
 // Fungsi Menambahkan Border bottom navbar
 window.onscroll = function() {
@@ -73,7 +78,9 @@ toggleDark.addEventListener('click', function() {
     Swal.fire({
         title: "Belum Tersedia!",
         text: "Fitur Toggle Dark/Light Belum Tersedia",
-        icon: "warning"
+        icon: "warning",
+        background: "#131c22",
+        color: "white"
       });
 })
 
@@ -133,12 +140,14 @@ async function animateProgress(element, percentage, delayTime, textElement = nul
     await delay(delayTime);
   }
 }
+// Bermasalah pada language gdscript
 function startSkillAnimations1() {
     animateProgress(progressWeb, 35, 50, progressWebPersen);
     animateProgress(progressProgramming, 12, 50, progressProgrammingPersen);
     animateProgress(progressUnknown1, 100, 15);
     animateProgress(progressUnknown2, 100, 20);
     animateProgress(progressDraw, 40, 45, progressDrawPersen);
+    animateProgress(gamedevPersen, 10, 45, gamedevProgress);
 }
 function startSkillAnimations2() {
     animateProgress(htmlProgress, 75, 30, htmlPersen);
@@ -148,6 +157,7 @@ function startSkillAnimations2() {
     animateProgress(pyProgress, 25, 40, pyPersen);
     animateProgress(bpProgress, 60, 40, bpPersen);
     animateProgress(twcProgress, 10, 40, twcPersen);
+    animateProgress(gdprogress, 10, 40, gdPersen);
     animateProgress(jsxProgress, 100, 25);
     animateProgress(njsProgress, 100, 25);
     animateProgress(bladeProgress, 100, 25);
@@ -191,7 +201,9 @@ document.getElementById('formMessage').addEventListener('submit', async (e) => {
         title: "Terkirim!",
         text: "Pesan berhasil dikirim!",
         icon: "success",
-        footer: `Success : ${response.status, response.text}`
+        footer: `Success : ${response.status, response.text}`,
+        background: "#131c22",
+        color: "white"
         });
 
         document.getElementById('formMessage').reset();
@@ -201,7 +213,9 @@ document.getElementById('formMessage').addEventListener('submit', async (e) => {
             icon: "error",
             title: "Gagal!",
             text: "Pesan tidak terkirim!",
-            footer: `Error : ${error}`
+            footer: `Error : ${error}`,
+            background: "#131c22",
+            color: "white"
         });      
         console.log('Error:', error);
     } 

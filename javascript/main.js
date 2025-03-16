@@ -191,7 +191,7 @@ document.getElementById('formMessage').addEventListener('submit', async (e) => {
     }
     loading.classList.remove('d-none');
     try {
-        const response = await emailjs.send('service_9rbyk6h', 'template_fqpspis', {
+        const response = await emailjs.send('service_9rbyk6h', 'template_6hort9i', {
             name: nama.value,
             email: email.value,
             message: messages.value

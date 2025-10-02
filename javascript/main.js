@@ -1,5 +1,5 @@
 const $ = (selector) => {
-    return document.querySelector(selector);
+  return document.querySelector(selector);
 }
 
 const toggleDark = $('#toggle-dark');
@@ -39,25 +39,69 @@ const nama = $('#in-name');
 const email = $('#in-email');
 const messages = $('#in-messages');
 const menu = $('#menuNavbar');
+const gifProject1 = $("#gifProject1")
+const loader = $("#loader")
+
+
+//lazy loading project
+
+document.addEventListener("DOMContentLoaded", () => {
+  const gifProject1 = document.getElementById("gifProject1");
+  const loader = document.getElementById("loader");
+  const gifProject2 = document.getElementById("gifProject2");
+  const loader1 = document.getElementById("loader1");
+
+  // Jika gambar sudah di-cache dan sudah selesai load
+  if (gifProject1.complete && gifProject1.naturalWidth !== 0) {
+    console.log("Img sudah ada di cache, langsung tampilkan");
+    loader.classList.add("d-none");
+    gifProject1.classList.remove("invisible");
+  } else {
+    gifProject1.onload = () => {
+      console.log("Img Terload (baru download)");
+      loader.classList.add("d-none");
+      gifProject1.classList.remove("invisible");
+    };
+
+    gifProject1.onerror = () => {
+      console.log("Img gagal dimuat");
+    };
+  }
+  if (gifProject2.complete && gifProject2.naturalWidth !== 0) {
+    console.log("Img sudah ada di cache, langsung tampilkan");
+    loader1.classList.add("d-none");
+    gifProject2.classList.remove("invisible");
+  } else {
+    gifProject2.onload = () => {
+      console.log("Img Terload (baru download)");
+      loader1.classList.add("d-none");
+      gifProject2.classList.remove("invisible");
+    };
+
+    gifProject2.onerror = () => {
+      console.log("Img gagal dimuat");
+    };
+  }
+});
 
 
 // Fungsi Menambahkan Border bottom navbar
-window.onscroll = function() {
-    const navbarCustom = $(".navbar-custom");
-    if (window.scrollY > 0) {
-        navbarCustom.classList.add("border-bottom");
-        navbarCustom.style.backgroundColor = 'rgba(0, 0 , 0, 0.5)';
-        navbarCustom.style.transition = 'all .5s ease-out';
-        navbarCustom.style.backdropFilter = 'blur(3px)';
-    } else {
-        navbarCustom.classList.remove("border-bottom");
-        navbarCustom.style.backgroundColor = 'rgba(0, 0 , 0, 0)';
-        navbarCustom.style.backdropFilter = 'blur(0)';
-    }
+window.onscroll = function () {
+  const navbarCustom = $(".navbar-custom");
+  if (window.scrollY > 0) {
+    navbarCustom.classList.add("border-bottom");
+    navbarCustom.style.backgroundColor = 'rgba(0, 0 , 0, 0.5)';
+    navbarCustom.style.transition = 'all .5s ease-out';
+    navbarCustom.style.backdropFilter = 'blur(3px)';
+  } else {
+    navbarCustom.classList.remove("border-bottom");
+    navbarCustom.style.backgroundColor = 'rgba(0, 0 , 0, 0)';
+    navbarCustom.style.backdropFilter = 'blur(0)';
+  }
 };
 //Fungsi Menu Hamburger Navbar
-menu.addEventListener('change', function(){
-  
+menu.addEventListener('change', function () {
+
 });
 
 // Fungsi untuk menghapus atribut `data-aos` di perangkat mobile
@@ -74,22 +118,22 @@ window.addEventListener("resize", removeAosOnMobile);
 
 
 //Fungsi Toggle Dark Mode
-toggleDark.addEventListener('click', function() {
-    Swal.fire({
-        title: "Belum Tersedia!",
-        text: "Fitur Toggle Dark/Light Belum Tersedia",
-        icon: "warning",
-        background: "#131c22",
-        color: "white"
-      });
+toggleDark.addEventListener('click', function () {
+  Swal.fire({
+    title: "Belum Tersedia!",
+    text: "Fitur Toggle Dark/Light Belum Tersedia",
+    icon: "warning",
+    background: "#131c22",
+    color: "white"
+  });
 })
 
 // document.addEventListener("DOMContentLoaded", () => {
 //     const body = document.body;
-  
+
 //     const savedTheme = localStorage.getItem("theme") || "light-mode";
 //     body.classList.add(savedTheme);
-  
+
 //     toggleDark.addEventListener("click", () => {
 //       if (body.classList.contains("light-mode")) {
 //         body.classList.replace("light-mode", "dark-mode");
@@ -100,10 +144,10 @@ toggleDark.addEventListener('click', function() {
 //       }
 //     });
 //   });
-  
+
 
 //Animasi Progress saat muncul dilayar
- document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const skillSection = document.querySelector("#skills");
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -142,82 +186,82 @@ async function animateProgress(element, percentage, delayTime, textElement = nul
 }
 // Bermasalah pada language gdscript
 function startSkillAnimations1() {
-    animateProgress(progressWeb, 35, 50, progressWebPersen);
-    animateProgress(progressProgramming, 12, 50, progressProgrammingPersen);
-    animateProgress(progressUnknown1, 100, 15);
-    animateProgress(progressUnknown2, 100, 20);
-    animateProgress(progressDraw, 40, 45, progressDrawPersen);
-    animateProgress(gamedevPersen, 10, 45, gamedevProgress);
+  animateProgress(progressWeb, 35, 50, progressWebPersen);
+  animateProgress(progressProgramming, 12, 50, progressProgrammingPersen);
+  animateProgress(progressUnknown1, 100, 15);
+  animateProgress(progressUnknown2, 100, 20);
+  animateProgress(progressDraw, 40, 45, progressDrawPersen);
+  animateProgress(gamedevPersen, 10, 45, gamedevProgress);
 }
 function startSkillAnimations2() {
-    animateProgress(htmlProgress, 75, 30, htmlPersen);
-    animateProgress(cssProgress, 60, 33, cssPersen);
-    animateProgress(jsProgress, 30, 40, jsPersen);
-    animateProgress(phpProgress, 20, 45, phpPersen);
-    animateProgress(pyProgress, 25, 40, pyPersen);
-    animateProgress(bpProgress, 60, 40, bpPersen);
-    animateProgress(twcProgress, 10, 40, twcPersen);
-    animateProgress(gdprogress, 10, 40, gdPersen);
-    animateProgress(jsxProgress, 100, 25);
-    animateProgress(njsProgress, 100, 25);
-    animateProgress(bladeProgress, 100, 25);
+  animateProgress(htmlProgress, 75, 30, htmlPersen);
+  animateProgress(cssProgress, 60, 33, cssPersen);
+  animateProgress(jsProgress, 30, 40, jsPersen);
+  animateProgress(phpProgress, 20, 45, phpPersen);
+  animateProgress(pyProgress, 25, 40, pyPersen);
+  animateProgress(bpProgress, 60, 40, bpPersen);
+  animateProgress(twcProgress, 10, 40, twcPersen);
+  animateProgress(gdprogress, 10, 40, gdPersen);
+  animateProgress(jsxProgress, 100, 25);
+  animateProgress(njsProgress, 100, 25);
+  animateProgress(bladeProgress, 100, 25);
 }
 
 //Fungsi Validasi Form Contact Me
 (() => {
-    'use strict'
-    const forms = document.querySelectorAll('.needs-validation')
-  
-    Array.from(forms).forEach(form => {
-      form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-      }, false);
-    });
-  })();
+  'use strict'
+  const forms = document.querySelectorAll('.needs-validation')
+
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }, false);
+  });
+})();
 
 //Fungsi Kirim Email Dengan EmailJS
 emailjs.init('ivHJpvj0u2-S-42PS');
 document.getElementById('formMessage').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const loading = document.getElementById('loading');
+  e.preventDefault();
+  const form = e.target;
+  const loading = document.getElementById('loading');
 
-    if (!form.checkValidity()) {
-        form.classList.add('was-validated'); 
-        return; 
-    }
-    loading.classList.remove('d-none');
-    try {
-        const response = await emailjs.send('service_9rbyk6h', 'template_6hort9i', {
-            name: nama.value,
-            email: email.value,
-            message: messages.value
-        });
+  if (!form.checkValidity()) {
+    form.classList.add('was-validated');
+    return;
+  }
+  loading.classList.remove('d-none');
+  try {
+    const response = await emailjs.send('service_9rbyk6h', 'template_6hort9i', {
+      name: nama.value,
+      email: email.value,
+      message: messages.value
+    });
 
-        Swal.fire({
-        title: "Terkirim!",
-        text: "Pesan berhasil dikirim!",
-        icon: "success",
-        footer: `Success : ${response.status, response.text}`,
-        background: "#131c22",
-        color: "white"
-        });
+    Swal.fire({
+      title: "Terkirim!",
+      text: "Pesan berhasil dikirim!",
+      icon: "success",
+      footer: `Success : ${response.status, response.text}`,
+      background: "#131c22",
+      color: "white"
+    });
 
-        document.getElementById('formMessage').reset();
-        form.classList.remove('was-validated');
-    } catch(error) {
-        Swal.fire({
-            icon: "error",
-            title: "Gagal!",
-            text: "Pesan tidak terkirim!",
-            footer: `Error : ${error}`,
-            background: "#131c22",
-            color: "white"
-        });      
-        console.log('Error:', error);
-    } 
-    loading.classList.add('d-none');
+    document.getElementById('formMessage').reset();
+    form.classList.remove('was-validated');
+  } catch (error) {
+    Swal.fire({
+      icon: "error",
+      title: "Gagal!",
+      text: "Pesan tidak terkirim!",
+      footer: `Error : ${error}`,
+      background: "#131c22",
+      color: "white"
+    });
+    console.log('Error:', error);
+  }
+  loading.classList.add('d-none');
 });

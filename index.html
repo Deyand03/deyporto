@@ -15,7 +15,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
-<body>
+<body style="overflow-x: hidden;">
     <div>
         <!-- Navbar -->
         <!-- Navbar Desktop -->
@@ -694,7 +694,8 @@
                                 <div class="mx-4 mb-3 d-flex align-items-center gap-2">
                                     <div class="icon-skills-fill rounded-4 d-flex align-items-center p-2"
                                         style="aspect-ratio: 1/1;">
-                                        <svg fill="currentColor" width="35" height="35" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                        <svg fill="currentColor" width="35" height="35" viewBox="0 0 32 32"
+                                            xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
                                                 stroke-linejoin="round"></g>
@@ -882,16 +883,21 @@
                         <div class="kartu-projek d-flex flex-column shadow p-3" style="width: 22rem;height: 27rem;"
                             data-aos="fade-right">
                             <div class="mb-2 d-flex justify-content-center">
-                                <img src="/asset/gif/projek1.gif" class="rounded shadow"
+                                <div id="loader" class="d-flex justify-content-center align-items-center" style="height: 10rem;">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden">...Loading</span>
+                                    </div>
+                                </div>
+                                <img src="/asset/gif/projek1.gif" id="gifProject1" class="invisible rounded shadow"
                                     style="width: 20rem;height: 10rem;" loading="lazy">
                             </div>
                             <div class="p-2 d-flex flex-column justify-content-between h-100">
                                 <h3>Portofolio</h3>
-                                <span style="line-height: 1.5;">
+                                <p style="line-height: 1.5;">
                                     Ini adalah Website Pertama Yang Saya Buat.
                                     Website ini saya buat untuk memperkenalkan kemampuan dan hasil karya saya selama
                                     perjalanan belajar.<br><br>
-                                </span>
+                                </p>
                                 <span class="fw-semibold" style="font-size: 20px; color: #7eafff;">
                                     HTML CSS Javascript
                                 </span>
@@ -899,14 +905,24 @@
                         </div>
                         <div class="kartu-projek d-flex flex-column shadow p-3" style="width: 22rem;height: 27rem;"
                             data-aos="zoom-in-up">
-                            <div class="border rounded shadow mb-2 d-flex justify-content-center align-items-center"
-                                style="width: 20rem;height: 100%; max-height: 10rem;">
-                                <span class="fs-2">??</span>
+                            <div class="mb-2 d-flex justify-content-center">
+                                <div id="loader1" class="d-flex justify-content-center align-items-center" style="height: 10rem;">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden">...Loading</span>
+                                    </div>
+                                </div>
+                                <img src="/asset/gif/project2.gif" id="gifProject2" class="invisible rounded shadow"
+                                    style="width: 20rem;height: 10rem;" loading="lazy">
                             </div>
                             <div class="p-2 d-flex flex-column justify-content-between h-100">
-                                <h3>??</h3>
-                                <span class="">??</span>
-                                <span class="fw-semibold" style="font-size: 20px; color: #7eafff;">??</span>
+                                <h3>Interngate</h3>
+                                <p style="line-height: 1.5;">
+                                    Website Magang ini adalah hasil project saya bersama teman selama pembelajaran
+                                    Pemrograman Web II
+                                    Website ini memberikan layanan untuk mahasiswa yang ingin mencari program magang
+                                </p>
+                                <p class="fw-semibold" style="font-size: 20px; color: #ff7e7e;">Laravel, TailwindCss,
+                                    Sql</p>
                             </div>
                         </div>
                         <div class="kartu-projek d-flex flex-column shadow p-3" style="width: 22rem;height: 27rem;"
@@ -937,17 +953,17 @@
                     <!-- Judul End -->
 
                     <!-- Isi End -->
-                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <!-- Modal -->
+                    <div class="d-flex flex-wrap justify-content-center gap-3 mx-1">
                         <div class="card1 kartu p-2 rounded sertif-mobile">
                             <button type="button" data-bs-toggle="modal" class="btn" data-bs-target="#exampleModal">
                                 <img src="/asset/images/Sertifikat Prakerja_page-0001.jpg" class="sertif"
                                     alt="Sertifikat Prakerja" loading="lazy">
                             </button>
                         </div>
-                        <!-- Modal -->
                         <div class="text-light modal fade" id="exampleModal" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-theme="dark">
-                            <div class="modal-dialog modal-dialog-centered ">
+                            <div class="modal-dialog modal-dialog-centered modal-fullscreen">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Sertifikat karrier.mu
@@ -958,21 +974,21 @@
                                     </div>
                                     <div class="modal-body d-flex justify-content-center">
                                         <img src="/asset/images/Sertifikat Prakerja_page-0001.jpg" alt=""
-                                            style="width: 20rem;" loading="lazy">
+                                            loading="lazy">
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Modal 2 -->
                         <div class="card1 kartu p-2 rounded sertif-mobile d-flex flex-column justify-content-center">
-                            <button type="button" data-bs-toggle="modal" class="btn" data-bs-target="#exampleModal2">
-                                <img src="/asset/images/Sertifikat Skillhub_page-0001.jpg" class="sertif"
-                                    alt="Sertifikat Skillhub" loading="lazy">
+                            <button type="button" data-bs-toggle="modal" class="btn" data-bs-target="#exampleModal3">
+                                <img src="/asset/images/Sertifikat DiCoding Pemrograman SOLID_page-0001.jpg"
+                                    class="sertif" alt="Sertifikat Skillhub" loading="lazy">
                             </button>
                         </div>
-                        <!-- Modal 2 -->
-                        <div class="text-light modal fade" id="exampleModal2" tabindex="-1"
+                        <div class="text-light modal fade" id="exampleModal3" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-theme="dark">
-                            <div class="modal-dialog modal-dialog-centered ">
+                            <div class="modal-dialog modal-dialog-centered modal-fullscreen">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Sertifikat Skillhub</h1>
@@ -980,18 +996,40 @@
                                             aria-label="close"></button>
                                     </div>
                                     <div class="modal-body d-flex justify-content-center">
-                                        <img src="/asset/images/Sertifikat Skillhub_page-0001.jpg" alt=""
-                                            style="width: 20rem;" loading="lazy">
+                                        <img src="/asset/images/Sertifikat DiCoding Pemrograman SOLID_page-0001.jpg"
+                                            alt="" loading="lazy">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card1 kartu p-4 rounded sertif-mobile">
-                            <div
-                                class="sertif-mobile d-flex flex-column justify-content-center align-items-center h-100">
-                                <span class="fs-2 sertif">??</span>
+                        <!-- Modal 4 -->
+                        <div class="card1 kartu p-2 rounded sertif-mobile d-flex flex-column justify-content-center">
+                            <button type="button" data-bs-toggle="modal" class="btn" data-bs-target="#exampleModal4">
+                                <img src="/asset/images/Sertifikat Cyber SecurityKNOWOS_page-0001.jpg" class="sertif"
+                                    alt="Sertifikat Skillhub" loading="lazy">
+                            </button>
+                        </div>
+                        <div class="text-light modal fade" id="exampleModal4" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-theme="dark">
+                            <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Sertifikat CyberSecurity
+                                        </h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="close"></button>
+                                    </div>
+                                    <div class="modal-body d-flex justify-content-center">
+                                        <img src="/asset/images/Sertifikat Cyber SecurityKNOWOS_page-0001.jpg" alt=""
+                                            loading="lazy">
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <h5><a href="https://drive.google.com/drive/folders/1Z3PB4VIGN3Z7GwVzzYWKMZLrFN0lbjHl">Lihat
+                                Lainnya→</a></h5>
                     </div>
                     <!-- Isi -->
                 </section>
